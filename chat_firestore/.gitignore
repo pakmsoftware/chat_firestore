@@ -46,3 +46,5 @@ app.*.map.json
 *GoogleService-Info.plist
 firebase_options.dart
 firebase.json
+*l10n.dart
+*messages_*.dart
