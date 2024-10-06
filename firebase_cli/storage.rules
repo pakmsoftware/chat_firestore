@@ -1,0 +1,17 @@
+rules_version = '2';
+
+// STORAGE
+service firebase.storage {
+  match /b/{bucket}/o {
+    // Determines if user is authenticated and has verified its email address during registration
+    function userEmailVerified() {
+      return request.auth != null && request.auth.token.email_verified == true;
+    }
+
+    match /user_avatars/{imageName} {
+      allow read: if request.auth != null;
+      // Allow managing avatar only if its name contains user ID
+      allow write: if userEmailVerified() && imageName.matches('^' + request.auth.uid + '\\..+');
+    }
+  }
+}
