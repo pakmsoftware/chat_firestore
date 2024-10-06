@@ -1,8 +1,6 @@
-import 'dart:ui';
-
 import 'package:chat_firestore/features/firebase/domain/repositories/i_firebase_auth_repository.dart';
 import 'package:chat_firestore/features/firebase/utils/firebase_user_extension.dart';
-import 'package:chat_firestore/core/di/injection_container.dart';
+import 'package:chat_firestore/generated/l10n.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -24,7 +22,7 @@ class FirebaseAuthControllerCubit extends Cubit<FirebaseAuthControllerState> {
   Future<void> init() async {
     emit(state.copyWith(isLoadingAuthData: true));
     // Set firebase language to used localer
-    await repository.setLocale(sl<Locale>(instanceName: 'locale').languageCode);
+    await repository.setLocale(S.current.locale);
     final user = (await repository.reloadUser()).getData();
     if (user != null) {
       await changeUser(user);

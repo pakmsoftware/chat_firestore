@@ -2,6 +2,7 @@ import 'package:chat_firestore/core/di/injection_container.dart';
 import 'package:chat_firestore/core/error/flutter_error_config.dart';
 import 'package:chat_firestore/core/router/app_router.dart';
 import 'package:chat_firestore/firebase_options.dart';
+import 'package:chat_firestore/generated/l10n.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
@@ -12,6 +13,7 @@ void main() async {
   );
   await InjectionContainer().init();
   FlutterErrorConfig.init();
+  // TODO(pk): Add FCM support
   runApp(const MyApp());
 }
 
@@ -25,6 +27,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp.router(
       routerDelegate: appRouter.delegate(),
       routeInformationParser: appRouter.defaultRouteParser(),
+      localizationsDelegates: const [
+        S.delegate,
+      ],
+      supportedLocales: S.delegate.supportedLocales,
       title: 'Chat firestore',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
