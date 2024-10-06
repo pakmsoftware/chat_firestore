@@ -1,0 +1,21 @@
+{
+  "@@locale": "pl_PL",
+  "locale": "pl",
+    "verifyEmail": "Zweryfikuj email",
+  "checkYourInbox": "Sprawdź swoją skrzynkę i potwierdź email",
+  "firebase": "Firebase",
+  "sendAgainEmail": "Wyślij ponownie",
+  "fieldMustBeInt": "Pole musi być liczbą całkowitą",
+  "enterAge": "Wprowadź wiek",
+  "enterHeight": "Wprowadź wzrost (cm)",
+  "save": "Zapisz",
+  "fillInData": "Uzupełnij dane",
+  "editProfile": "Edytuj profil",
+  "users": "Użytkownicy",
+  "chat": "Chat",
+  "writeMessage": "Napisz wiadomość",
+  "from": "Od",
+  "to": "Do",
+  "age": "Wiek",
+  "filter": "Filtruj"
+}

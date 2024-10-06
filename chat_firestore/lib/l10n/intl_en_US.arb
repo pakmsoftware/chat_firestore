@@ -1,0 +1,21 @@
+{
+  "@@locale": "en_US",
+  "locale": "en",
+  "verifyEmail": "Verify email",
+  "checkYourInbox": "Check your inbox and verify your email",
+  "firebase": "Firebase",
+  "sendAgainEmail": "Send again",
+  "fieldMustBeInt": "Field must be a round number",
+  "enterAge": "Enter age",
+  "enterHeight": "Enter height in centimeters",
+  "save": "Save",
+  "fillInData": "Fill in your data",
+  "editProfile": "Edit profile",
+  "users": "Users",
+  "chat": "Chat",
+  "writeMessage": "Write message",
+  "from": "Od",
+  "to": "Do",
+  "age": "Wiek",
+  "filter": "Filtruj"
+}
