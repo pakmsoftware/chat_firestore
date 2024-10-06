@@ -1,5 +1,4 @@
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat.dart';
-import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_filter.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_message.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firestore_list_request.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firestore_paged_list.dart';

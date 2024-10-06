@@ -1,6 +1,6 @@
 import 'package:chat_firestore/core/router/app_router.dart';
 import 'package:chat_firestore/core/di/injection_container.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'firebase_routing_manager_state.dart';

@@ -1,7 +1,7 @@
 import 'package:chat_firestore/core/helper/future_failable_extension.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firebase_login_request.dart';
 import 'package:chat_firestore/features/firebase/domain/repositories/i_firebase_auth_repository.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'firebase_login_state.dart';

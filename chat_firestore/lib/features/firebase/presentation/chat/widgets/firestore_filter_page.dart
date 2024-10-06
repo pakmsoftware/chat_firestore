@@ -1,3 +1,4 @@
+import 'package:chat_firestore/core/helper/context_extension.dart';
 import 'package:chat_firestore/core/router/app_router.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_filter.dart';
 import 'package:chat_firestore/features/firebase/presentation/chat/cubit/firestore_chat_filter_page_cubit.dart';
@@ -5,7 +6,6 @@ import 'package:chat_firestore/features/firebase/presentation/chat/widgets/fires
 import 'package:chat_firestore/generated/l10n.dart';
 import 'package:chat_firestore/core/di/injection_container.dart';
 import 'package:auto_route/auto_route.dart';
-import 'package:calendar/library/utils/context_extension.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

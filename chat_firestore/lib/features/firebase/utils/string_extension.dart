@@ -1,8 +1,8 @@
 extension StringExtension on String {
   String get fileExtension {
-    final dotIndex = this.lastIndexOf('.');
+    final dotIndex = lastIndexOf('.');
     if (dotIndex >= 0) {
-      return this.substring(dotIndex);
+      return substring(dotIndex);
     }
 
     return this;

@@ -17,5 +17,17 @@
   "from": "Od",
   "to": "Do",
   "age": "Wiek",
-  "filter": "Filtruj"
+  "filter": "Filtruj",
+  "enterName": "Enter first name",
+  "enterSurname": "Enter last name",
+  "thisFieldIsNecessary": "This field is required",
+  "invalidEmail": "Invalid email address",
+  "authWrongPassword": "The password must be at least 8 characters long and include a lowercase and uppercase letter, a number, and a special character.",
+  "enterEmail": "Enter Email",
+  "enterPassword": "Enter Password",
+  "login": "Sign in",
+  "register": "Sign up",
+  "firebaseLogin": "Firebase Login",
+  "signOut": "Sign out",
+  "fieldCannotBeEmpty": "Field cannot be empty"
 }

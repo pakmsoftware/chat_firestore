@@ -36,13 +36,13 @@ class FirestoreListRequest with _$FirestoreListRequest {
     bool useLimit = true,
   }) {
     // extra pagination query -> last document snapshot
-    if (useLastDocument && this.pagination.lastDocument != null) {
-      preQuery = preQuery.startAfterDocument(this.pagination.lastDocument!);
+    if (useLastDocument && pagination.lastDocument != null) {
+      preQuery = preQuery.startAfterDocument(pagination.lastDocument!);
     }
 
     // page size
     if (useLimit) {
-      preQuery = preQuery.limit(this.pagination.pageSize);
+      preQuery = preQuery.limit(pagination.pageSize);
     }
     return preQuery;
   }

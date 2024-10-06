@@ -5,14 +5,14 @@ extension DateTimeExtension on DateTime {
     required DateTime pastDate,
     required int minutes,
   }) {
-    final diffDuration = this.difference(pastDate);
+    final diffDuration = difference(pastDate);
     return diffDuration.inMinutes >= minutes;
   }
 
   /// Determines if [pastDate] is the same day as this
   bool isTheSameDay({required DateTime pastDate}) {
-    return this.year == pastDate.year &&
-        this.month == pastDate.month &&
-        this.day == pastDate.day;
+    return year == pastDate.year &&
+        month == pastDate.month &&
+        day == pastDate.day;
   }
 }

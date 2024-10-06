@@ -1,7 +1,7 @@
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_filter.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firestore_paged_list.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firestore_user.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'firestore_chat_filter_page_state.dart';

@@ -4,7 +4,7 @@ import 'package:chat_firestore/features/firebase/domain/models/firestore_chat.da
 import 'package:chat_firestore/features/firebase/domain/repositories/i_firestore_chat_repository.dart';
 import 'package:chat_firestore/features/firebase/presentation/auth/cubit/firebase_auth_controller_cubit.dart';
 import 'package:chat_firestore/core/di/injection_container.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:chat_firestore/core/helper/future_failable_extension.dart';
 
@@ -35,8 +35,6 @@ class FirestoreChatListenerCubit extends Cubit<FirestoreChatListenerState> {
       if (chat == null || chat.lastMsg == null) {
         return;
       }
-      print('NEW CHAT MSG LISTENER');
-      print(chat);
 
       // Else emit new received message
       _setReceivedMessage(chat);

@@ -17,5 +17,17 @@
   "from": "Od",
   "to": "Do",
   "age": "Wiek",
-  "filter": "Filtruj"
+  "filter": "Filtruj",
+  "enterName": "Wprowadź imię",
+  "enterSurname": "Wprowadź nazwisko",
+  "thisFieldIsNecessary": "To pole jest wymagane",
+  "invalidEmail": "Błędny adres e-mail",
+  "authWrongPassword": "Hasło musi posiadać co najmniej 8 znaków oraz składać się z małej i duże litery, cyfry oraz znaku specjalnego. Nie może być to także kombinacja 3 znaków w kolejności z imienia, nazwiska, loginu, nazwy firmy ani adresu email.",
+  "enterEmail": "Wprowadź email",
+  "enterPassword": "Wprowadź hasło",
+  "login": "Zaloguj",
+  "register": "Zarejestruj",
+  "firebaseLogin": "Logowanie Firebase",
+  "signOut": "Wyloguj się",
+  "fieldCannotBeEmpty": "Pole nie moze być puste"
 }

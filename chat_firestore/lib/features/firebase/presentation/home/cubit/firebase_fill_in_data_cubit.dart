@@ -7,7 +7,7 @@ import 'package:chat_firestore/features/firebase/domain/repositories/i_firestore
 import 'package:chat_firestore/features/firebase/presentation/auth/cubit/firebase_auth_controller_cubit.dart';
 import 'package:chat_firestore/features/firebase/utils/string_extension.dart';
 import 'package:chat_firestore/core/di/injection_container.dart';
-import 'package:bloc/bloc.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:chat_firestore/core/helper/future_failable_extension.dart';
 import 'package:image_picker/image_picker.dart';
