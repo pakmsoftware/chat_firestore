@@ -1,8 +1,17 @@
 import 'package:chat_firestore/core/di/injection_container.dart';
+import 'package:chat_firestore/core/error/flutter_error_config.dart';
 import 'package:chat_firestore/core/router/app_router.dart';
+import 'package:chat_firestore/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  await InjectionContainer().init();
+  FlutterErrorConfig.init();
   runApp(const MyApp());
 }
 

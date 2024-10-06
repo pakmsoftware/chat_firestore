@@ -10,7 +10,7 @@ class AppRouter extends RootStackRouter {
   @override
   final List<AutoRoute> routes = [
     // Firebase
-    AutoRoute(page: FirebaseAuthControllerRoute.page),
+    AutoRoute(page: FirebaseAuthControllerRoute.page, initial: true),
     AutoRoute(page: FirebaseLoginRoute.page),
     AutoRoute(page: FirebaseVerifyEmailRoute.page),
     AutoRoute(page: FirebaseHomeRoute.page),
