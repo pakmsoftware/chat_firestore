@@ -43,8 +43,12 @@ mixin _$FirestoreChat {
   /// Custom name for group chats
   String? get name => throw _privateConstructorUsedError;
 
+  /// Serializes this FirestoreChat to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FirestoreChat
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreChatCopyWith<FirestoreChat> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -77,6 +81,8 @@ class _$FirestoreChatCopyWithImpl<$Res, $Val extends FirestoreChat>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreChat
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -120,6 +126,8 @@ class _$FirestoreChatCopyWithImpl<$Res, $Val extends FirestoreChat>
     ) as $Val);
   }
 
+  /// Create a copy of FirestoreChat
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FirestoreChatMessageCopyWith<$Res>? get lastMsg {
@@ -162,6 +170,8 @@ class __$$FirestoreChatImplCopyWithImpl<$Res>
       _$FirestoreChatImpl _value, $Res Function(_$FirestoreChatImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreChat
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -289,7 +299,7 @@ class _$FirestoreChatImpl extends _FirestoreChat {
             (identical(other.name, name) || other.name == name));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(
       runtimeType,
@@ -301,7 +311,9 @@ class _$FirestoreChatImpl extends _FirestoreChat {
       lastMsgTimestamp,
       name);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChat
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreChatImplCopyWith<_$FirestoreChatImpl> get copyWith =>
@@ -329,38 +341,40 @@ abstract class _FirestoreChat extends FirestoreChat {
   factory _FirestoreChat.fromJson(Map<String, dynamic> json) =
       _$FirestoreChatImpl.fromJson;
 
-  @override
-
   /// UUID
-  String get id;
   @override
+  String get id;
 
   /// Chat users
+  @override
   @JsonKey(toJson: _mapUsers)
   List<FirestoreChatUser> get users;
-  @override
 
   /// Chat user IDs - used to filter out chats without logged user for new messages listener
-  List<String> get userIds;
   @override
+  List<String> get userIds;
 
   /// Number of elements in [userIds] list
-  int? get userIdsCount;
   @override
+  int? get userIdsCount;
 
   /// Last message in chat
+  @override
   @JsonKey(toJson: _mapLastMsg)
   FirestoreChatMessage? get lastMsg;
-  @override
 
   /// Last message date to order by DESC by default
-  DateTime? get lastMsgTimestamp;
   @override
+  DateTime? get lastMsgTimestamp;
 
   /// Custom name for group chats
-  String? get name;
   @override
-  @JsonKey(ignore: true)
+  String? get name;
+
+  /// Create a copy of FirestoreChat
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreChatImplCopyWith<_$FirestoreChatImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

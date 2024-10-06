@@ -35,7 +35,9 @@ mixin _$FirestoreListRequest {
   /// Second ordering parameter
   String? get orderBySecond => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreListRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreListRequestCopyWith<FirestoreListRequest> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -68,6 +70,8 @@ class _$FirestoreListRequestCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreListRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -106,6 +110,8 @@ class _$FirestoreListRequestCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of FirestoreListRequest
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FirestorePaginationCopyWith<$Res> get pagination {
@@ -143,6 +149,8 @@ class __$$FirestoreListRequestImplCopyWithImpl<$Res>
       $Res Function(_$FirestoreListRequestImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreListRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -247,7 +255,9 @@ class _$FirestoreListRequestImpl extends _FirestoreListRequest {
   int get hashCode => Object.hash(runtimeType, orderBy, pagination,
       orderByDescending, collection, collectionRef, orderBySecond);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreListRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreListRequestImplCopyWith<_$FirestoreListRequestImpl>
@@ -266,32 +276,34 @@ abstract class _FirestoreListRequest extends FirestoreListRequest {
       final String? orderBySecond}) = _$FirestoreListRequestImpl;
   _FirestoreListRequest._() : super._();
 
-  @override
-
   /// Order by sort name of parameter
-  String get orderBy;
   @override
+  String get orderBy;
 
   /// Pagination information
-  FirestorePagination get pagination;
   @override
+  FirestorePagination get pagination;
 
   /// By default order by is ascending. Set it to true to have descending sort
-  bool get orderByDescending;
   @override
+  bool get orderByDescending;
 
   /// Name of collection. Is overwritten in datasource layer
-  String get collection;
   @override
+  String get collection;
 
   /// Collection reference
-  CollectionReference<Map<String, dynamic>>? get collectionRef;
   @override
+  CollectionReference<Map<String, dynamic>>? get collectionRef;
 
   /// Second ordering parameter
-  String? get orderBySecond;
   @override
-  @JsonKey(ignore: true)
+  String? get orderBySecond;
+
+  /// Create a copy of FirestoreListRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreListRequestImplCopyWith<_$FirestoreListRequestImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

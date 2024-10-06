@@ -26,7 +26,9 @@ mixin _$FirebaseAuthControllerState {
   Map<String, dynamic>? get loggedUserCustomClaims =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseAuthControllerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirebaseAuthControllerStateCopyWith<FirebaseAuthControllerState>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -56,6 +58,8 @@ class _$FirebaseAuthControllerStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirebaseAuthControllerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -105,6 +109,8 @@ class __$$FirebaseAuthControllerStateImplCopyWithImpl<$Res>
       $Res Function(_$FirebaseAuthControllerStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirebaseAuthControllerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -183,7 +189,9 @@ class _$FirebaseAuthControllerStateImpl
   int get hashCode => Object.hash(runtimeType, isLoadingAuthData, loggedUser,
       const DeepCollectionEquality().hash(_loggedUserCustomClaims));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseAuthControllerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirebaseAuthControllerStateImplCopyWith<_$FirebaseAuthControllerStateImpl>
@@ -199,20 +207,22 @@ abstract class _FirebaseAuthControllerState
           final Map<String, dynamic>? loggedUserCustomClaims}) =
       _$FirebaseAuthControllerStateImpl;
 
-  @override
-
   /// Is loading auth data -> page initialization
-  bool get isLoadingAuthData;
   @override
+  bool get isLoadingAuthData;
 
   /// Logged user from Firebase
-  User? get loggedUser;
   @override
+  User? get loggedUser;
 
   /// Logged user custom claims
-  Map<String, dynamic>? get loggedUserCustomClaims;
   @override
-  @JsonKey(ignore: true)
+  Map<String, dynamic>? get loggedUserCustomClaims;
+
+  /// Create a copy of FirebaseAuthControllerState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirebaseAuthControllerStateImplCopyWith<_$FirebaseAuthControllerStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

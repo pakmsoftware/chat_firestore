@@ -21,7 +21,9 @@ mixin _$FirestoreChatFilterPageState {
   FirestorePagedList<FirestoreUser> get users =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatFilterPageState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreChatFilterPageStateCopyWith<FirestoreChatFilterPageState>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -51,6 +53,8 @@ class _$FirestoreChatFilterPageStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreChatFilterPageState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -69,6 +73,8 @@ class _$FirestoreChatFilterPageStateCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of FirestoreChatFilterPageState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FirestoreChatFilterCopyWith<$Res> get filters {
@@ -104,6 +110,8 @@ class __$$FirestoreChatFilterPageStateImplCopyWithImpl<$Res>
       $Res Function(_$FirestoreChatFilterPageStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreChatFilterPageState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,7 +161,9 @@ class _$FirestoreChatFilterPageStateImpl
   @override
   int get hashCode => Object.hash(runtimeType, filters, users);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatFilterPageState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreChatFilterPageStateImplCopyWith<
@@ -169,14 +179,16 @@ abstract class _FirestoreChatFilterPageState
           required final FirestorePagedList<FirestoreUser> users}) =
       _$FirestoreChatFilterPageStateImpl;
 
-  @override
-
   /// Used filters
+  @override
   FirestoreChatFilter get filters;
   @override
   FirestorePagedList<FirestoreUser> get users;
+
+  /// Create a copy of FirestoreChatFilterPageState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreChatFilterPageStateImplCopyWith<
           _$FirestoreChatFilterPageStateImpl>
       get copyWith => throw _privateConstructorUsedError;

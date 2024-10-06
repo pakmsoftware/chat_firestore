@@ -30,8 +30,12 @@ mixin _$FirestoreUserFilterRequest {
   /// Maximal age of users inclusive
   int? get maxAge => throw _privateConstructorUsedError;
 
+  /// Serializes this FirestoreUserFilterRequest to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FirestoreUserFilterRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreUserFilterRequestCopyWith<FirestoreUserFilterRequest>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$FirestoreUserFilterRequestCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreUserFilterRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -103,6 +109,8 @@ class __$$FirestoreUserFilterRequestImplCopyWithImpl<$Res>
       $Res Function(_$FirestoreUserFilterRequestImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreUserFilterRequest
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -165,11 +173,13 @@ class _$FirestoreUserFilterRequestImpl extends _FirestoreUserFilterRequest {
             (identical(other.maxAge, maxAge) || other.maxAge == maxAge));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, nameQuery, minAge, maxAge);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreUserFilterRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreUserFilterRequestImplCopyWith<_$FirestoreUserFilterRequestImpl>
@@ -194,20 +204,22 @@ abstract class _FirestoreUserFilterRequest extends FirestoreUserFilterRequest {
   factory _FirestoreUserFilterRequest.fromJson(Map<String, dynamic> json) =
       _$FirestoreUserFilterRequestImpl.fromJson;
 
-  @override
-
   /// Query for name and surname. Works like .startsWith for user's full name (name OR surname)
-  String? get nameQuery;
   @override
+  String? get nameQuery;
 
   /// Minimal age for users inclusive
-  int? get minAge;
   @override
+  int? get minAge;
 
   /// Maximal age of users inclusive
-  int? get maxAge;
   @override
-  @JsonKey(ignore: true)
+  int? get maxAge;
+
+  /// Create a copy of FirestoreUserFilterRequest
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreUserFilterRequestImplCopyWith<_$FirestoreUserFilterRequestImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

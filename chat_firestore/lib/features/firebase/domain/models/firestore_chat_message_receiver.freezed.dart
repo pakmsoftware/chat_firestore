@@ -27,8 +27,12 @@ mixin _$FirestoreChatMessageReceiver {
   /// Flag that determines if message was read by [userId]
   bool get isRead => throw _privateConstructorUsedError;
 
+  /// Serializes this FirestoreChatMessageReceiver to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FirestoreChatMessageReceiver
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreChatMessageReceiverCopyWith<FirestoreChatMessageReceiver>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -55,6 +59,8 @@ class _$FirestoreChatMessageReceiverCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreChatMessageReceiver
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -96,6 +102,8 @@ class __$$FirestoreChatMessageReceiverImplCopyWithImpl<$Res>
       $Res Function(_$FirestoreChatMessageReceiverImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreChatMessageReceiver
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -148,11 +156,13 @@ class _$FirestoreChatMessageReceiverImpl
             (identical(other.isRead, isRead) || other.isRead == isRead));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, userId, isRead);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatMessageReceiver
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreChatMessageReceiverImplCopyWith<
@@ -177,16 +187,18 @@ abstract class _FirestoreChatMessageReceiver
   factory _FirestoreChatMessageReceiver.fromJson(Map<String, dynamic> json) =
       _$FirestoreChatMessageReceiverImpl.fromJson;
 
-  @override
-
   /// User UUID
-  String get userId;
   @override
+  String get userId;
 
   /// Flag that determines if message was read by [userId]
-  bool get isRead;
   @override
-  @JsonKey(ignore: true)
+  bool get isRead;
+
+  /// Create a copy of FirestoreChatMessageReceiver
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreChatMessageReceiverImplCopyWith<
           _$FirestoreChatMessageReceiverImpl>
       get copyWith => throw _privateConstructorUsedError;

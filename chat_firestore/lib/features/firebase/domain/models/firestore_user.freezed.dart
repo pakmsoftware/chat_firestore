@@ -44,8 +44,12 @@ mixin _$FirestoreUser {
   /// User's height in centimeters
   int? get height => throw _privateConstructorUsedError;
 
+  /// Serializes this FirestoreUser to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FirestoreUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreUserCopyWith<FirestoreUser> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -77,6 +81,8 @@ class _$FirestoreUserCopyWithImpl<$Res, $Val extends FirestoreUser>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreUser
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -153,6 +159,8 @@ class __$$FirestoreUserImplCopyWithImpl<$Res>
       _$FirestoreUserImpl _value, $Res Function(_$FirestoreUserImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreUser
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -273,12 +281,14 @@ class _$FirestoreUserImpl extends _FirestoreUser {
             (identical(other.height, height) || other.height == height));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, surname, createdDate,
       fullNameLower, avatar, age, height);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreUserImplCopyWith<_$FirestoreUserImpl> get copyWith =>
@@ -307,40 +317,42 @@ abstract class _FirestoreUser extends FirestoreUser {
   factory _FirestoreUser.fromJson(Map<String, dynamic> json) =
       _$FirestoreUserImpl.fromJson;
 
-  @override
-
   /// ID of user
-  String get id;
   @override
+  String get id;
 
   /// First name of user
-  String get name;
   @override
+  String get name;
 
   /// Last name of user
-  String get surname;
   @override
+  String get surname;
 
   /// When user was created in firestore
-  DateTime get createdDate;
   @override
+  DateTime get createdDate;
 
   /// Full name in lowercase used for autocomplete search
-  String? get fullNameLower;
   @override
+  String? get fullNameLower;
 
   /// Path to firebase storage avatar file
-  String? get avatar;
   @override
+  String? get avatar;
 
   /// User's age
-  int? get age;
   @override
+  int? get age;
 
   /// User's height in centimeters
-  int? get height;
   @override
-  @JsonKey(ignore: true)
+  int? get height;
+
+  /// Create a copy of FirestoreUser
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreUserImplCopyWith<_$FirestoreUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

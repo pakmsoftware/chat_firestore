@@ -33,7 +33,9 @@ mixin _$FirestoreChatPageState {
   /// Filters used for chat collection (firstly for users)
   FirestoreChatFilter get filters => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatPageState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreChatPageStateCopyWith<FirestoreChatPageState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -65,6 +67,8 @@ class _$FirestoreChatPageStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreChatPageState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,6 +102,8 @@ class _$FirestoreChatPageStateCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of FirestoreChatPageState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FirestoreChatFilterCopyWith<$Res> get filters {
@@ -137,6 +143,8 @@ class __$$FirestoreChatPageStateImplCopyWithImpl<$Res>
       $Res Function(_$FirestoreChatPageStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreChatPageState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -226,7 +234,9 @@ class _$FirestoreChatPageStateImpl implements _FirestoreChatPageState {
   int get hashCode => Object.hash(runtimeType, isLoadingData, isFetchingMore,
       chats, filteredUsersHelperList, filters);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatPageState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreChatPageStateImplCopyWith<_$FirestoreChatPageStateImpl>
@@ -243,28 +253,30 @@ abstract class _FirestoreChatPageState implements FirestoreChatPageState {
       required final FirestoreChatFilter
           filters}) = _$FirestoreChatPageStateImpl;
 
-  @override
-
   /// Is loading first page of chat objects
-  bool get isLoadingData;
   @override
+  bool get isLoadingData;
 
   /// Determines if Cubit is fetching more data from firestore
-  bool get isFetchingMore;
   @override
+  bool get isFetchingMore;
 
   /// Chat list from firestore
-  FirestorePagedList<FirestoreChat> get chats;
   @override
+  FirestorePagedList<FirestoreChat> get chats;
 
   /// Helper list of users used to get theirs ids for chat filtering
-  FirestorePagedList<FirestoreUser> get filteredUsersHelperList;
   @override
+  FirestorePagedList<FirestoreUser> get filteredUsersHelperList;
 
   /// Filters used for chat collection (firstly for users)
-  FirestoreChatFilter get filters;
   @override
-  @JsonKey(ignore: true)
+  FirestoreChatFilter get filters;
+
+  /// Create a copy of FirestoreChatPageState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreChatPageStateImplCopyWith<_$FirestoreChatPageStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

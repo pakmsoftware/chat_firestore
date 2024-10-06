@@ -44,8 +44,12 @@ mixin _$FirestoreChatMessage {
   @JsonKey(includeToJson: false, includeFromJson: false)
   FirestoreChatMessageStatus get status => throw _privateConstructorUsedError;
 
+  /// Serializes this FirestoreChatMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FirestoreChatMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreChatMessageCopyWith<FirestoreChatMessage> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -79,6 +83,8 @@ class _$FirestoreChatMessageCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreChatMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -151,6 +157,8 @@ class __$$FirestoreChatMessageImplCopyWithImpl<$Res>
       $Res Function(_$FirestoreChatMessageImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreChatMessage
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -273,12 +281,14 @@ class _$FirestoreChatMessageImpl extends _FirestoreChatMessage {
             (identical(other.status, status) || other.status == status));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, content, timestamp, senderId,
       chatId, const DeepCollectionEquality().hash(_receivers), status);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatMessage
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreChatMessageImplCopyWith<_$FirestoreChatMessageImpl>
@@ -310,38 +320,40 @@ abstract class _FirestoreChatMessage extends FirestoreChatMessage {
   factory _FirestoreChatMessage.fromJson(Map<String, dynamic> json) =
       _$FirestoreChatMessageImpl.fromJson;
 
-  @override
-
   /// UUID
-  String get id;
   @override
+  String get id;
 
   /// Message text content
-  String get content;
   @override
+  String get content;
 
   /// Date of message
-  DateTime get timestamp;
   @override
+  DateTime get timestamp;
 
   /// Sender UUID
-  String get senderId;
   @override
+  String get senderId;
 
   /// Chat UUID
-  String get chatId;
   @override
+  String get chatId;
 
   /// Message receivers
+  @override
   @JsonKey(toJson: _mapReceivers)
   List<FirestoreChatMessageReceiver> get receivers;
-  @override
 
   /// Status of message. Valid and shown only for message sender
+  @override
   @JsonKey(includeToJson: false, includeFromJson: false)
   FirestoreChatMessageStatus get status;
+
+  /// Create a copy of FirestoreChatMessage
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreChatMessageImplCopyWith<_$FirestoreChatMessageImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -26,7 +26,9 @@ mixin _$FirestorePagination {
   DocumentSnapshot<Object?>? get lastDocument =>
       throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestorePagination
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestorePaginationCopyWith<FirestorePagination> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +55,8 @@ class _$FirestorePaginationCopyWithImpl<$Res, $Val extends FirestorePagination>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestorePagination
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -99,6 +103,8 @@ class __$$FirestorePaginationImplCopyWithImpl<$Res>
       $Res Function(_$FirestorePaginationImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestorePagination
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -165,7 +171,9 @@ class _$FirestorePaginationImpl implements _FirestorePagination {
   int get hashCode =>
       Object.hash(runtimeType, pageSize, currentPageSize, lastDocument);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestorePagination
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestorePaginationImplCopyWith<_$FirestorePaginationImpl> get copyWith =>
@@ -180,20 +188,22 @@ abstract class _FirestorePagination implements FirestorePagination {
           final DocumentSnapshot<Object?>? lastDocument}) =
       _$FirestorePaginationImpl;
 
-  @override
-
   /// Used as 'limit' in firestore
-  int get pageSize;
   @override
+  int get pageSize;
 
   /// Currently returned page size
-  int get currentPageSize;
   @override
+  int get currentPageSize;
 
   /// Last snaphost of document used as 'startAfterDocument' in firestore query
-  DocumentSnapshot<Object?>? get lastDocument;
   @override
-  @JsonKey(ignore: true)
+  DocumentSnapshot<Object?>? get lastDocument;
+
+  /// Create a copy of FirestorePagination
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestorePaginationImplCopyWith<_$FirestorePaginationImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -38,7 +38,9 @@ mixin _$FirestoreChatConversationState {
   /// Message content written in input
   String? get messageToSend => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatConversationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreChatConversationStateCopyWith<FirestoreChatConversationState>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -74,6 +76,8 @@ class _$FirestoreChatConversationStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreChatConversationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -117,6 +121,8 @@ class _$FirestoreChatConversationStateCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of FirestoreChatConversationState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FirestoreChatCopyWith<$Res>? get chat {
@@ -162,6 +168,8 @@ class __$$FirestoreChatConversationStateImplCopyWithImpl<$Res>
       $Res Function(_$FirestoreChatConversationStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreChatConversationState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -291,7 +299,9 @@ class _$FirestoreChatConversationStateImpl
       chat,
       messageToSend);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatConversationState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreChatConversationStateImplCopyWith<
@@ -311,36 +321,38 @@ abstract class _FirestoreChatConversationState
       final FirestoreChat? chat,
       final String? messageToSend}) = _$FirestoreChatConversationStateImpl;
 
-  @override
-
   /// Loading messages on init
-  bool get isLoadingData;
   @override
+  bool get isLoadingData;
 
   /// Is fetching more messages
-  bool get isFetchingMore;
   @override
+  bool get isFetchingMore;
 
   /// Is sending message
-  bool get isSendingMessage;
   @override
+  bool get isSendingMessage;
 
   /// Paged list of messages
-  FirestorePagedList<FirestoreChatMessage> get messages;
   @override
+  FirestorePagedList<FirestoreChatMessage> get messages;
 
   /// Receiver ids
-  List<String> get receiverIds;
   @override
+  List<String> get receiverIds;
 
   /// Loaded chat from firestore
-  FirestoreChat? get chat;
   @override
+  FirestoreChat? get chat;
 
   /// Message content written in input
-  String? get messageToSend;
   @override
-  @JsonKey(ignore: true)
+  String? get messageToSend;
+
+  /// Create a copy of FirestoreChatConversationState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreChatConversationStateImplCopyWith<
           _$FirestoreChatConversationStateImpl>
       get copyWith => throw _privateConstructorUsedError;

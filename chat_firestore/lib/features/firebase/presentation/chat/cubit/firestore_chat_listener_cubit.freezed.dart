@@ -19,7 +19,9 @@ mixin _$FirestoreChatListenerState {
   /// Newest message chat received
   FirestoreChat? get receivedChat => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatListenerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreChatListenerStateCopyWith<FirestoreChatListenerState>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -47,6 +49,8 @@ class _$FirestoreChatListenerStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreChatListenerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -60,6 +64,8 @@ class _$FirestoreChatListenerStateCopyWithImpl<$Res,
     ) as $Val);
   }
 
+  /// Create a copy of FirestoreChatListenerState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FirestoreChatCopyWith<$Res>? get receivedChat {
@@ -98,6 +104,8 @@ class __$$FirestoreChatListenerStateImplCopyWithImpl<$Res>
       $Res Function(_$FirestoreChatListenerStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreChatListenerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -138,7 +146,9 @@ class _$FirestoreChatListenerStateImpl implements _FirestoreChatListenerState {
   @override
   int get hashCode => Object.hash(runtimeType, receivedChat);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatListenerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreChatListenerStateImplCopyWith<_$FirestoreChatListenerStateImpl>
@@ -151,12 +161,14 @@ abstract class _FirestoreChatListenerState
   factory _FirestoreChatListenerState({final FirestoreChat? receivedChat}) =
       _$FirestoreChatListenerStateImpl;
 
-  @override
-
   /// Newest message chat received
-  FirestoreChat? get receivedChat;
   @override
-  @JsonKey(ignore: true)
+  FirestoreChat? get receivedChat;
+
+  /// Create a copy of FirestoreChatListenerState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreChatListenerStateImplCopyWith<_$FirestoreChatListenerStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

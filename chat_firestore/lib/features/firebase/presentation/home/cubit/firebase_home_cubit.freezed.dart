@@ -41,7 +41,9 @@ mixin _$FirebaseHomeState {
   /// Logged user from firestore
   FirestoreUser? get user => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseHomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirebaseHomeStateCopyWith<FirebaseHomeState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -77,6 +79,8 @@ class _$FirebaseHomeStateCopyWithImpl<$Res, $Val extends FirebaseHomeState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirebaseHomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -125,6 +129,8 @@ class _$FirebaseHomeStateCopyWithImpl<$Res, $Val extends FirebaseHomeState>
     ) as $Val);
   }
 
+  /// Create a copy of FirebaseHomeState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FirestoreUserFilterRequestCopyWith<$Res> get filters {
@@ -133,6 +139,8 @@ class _$FirebaseHomeStateCopyWithImpl<$Res, $Val extends FirebaseHomeState>
     });
   }
 
+  /// Create a copy of FirebaseHomeState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FirestoreChatFilterCopyWith<$Res> get uiFilters {
@@ -141,6 +149,8 @@ class _$FirebaseHomeStateCopyWithImpl<$Res, $Val extends FirebaseHomeState>
     });
   }
 
+  /// Create a copy of FirebaseHomeState
+  /// with the given fields replaced by the non-null parameter values.
   @override
   @pragma('vm:prefer-inline')
   $FirestoreUserCopyWith<$Res>? get user {
@@ -188,6 +198,8 @@ class __$$FirebaseHomeStateImplCopyWithImpl<$Res>
       $Res Function(_$FirebaseHomeStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirebaseHomeState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -312,7 +324,9 @@ class _$FirebaseHomeStateImpl implements _FirebaseHomeState {
   int get hashCode => Object.hash(runtimeType, isPageInit, isLoadingData,
       isFetchingMoreData, showFillDataForm, userList, filters, uiFilters, user);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseHomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirebaseHomeStateImplCopyWith<_$FirebaseHomeStateImpl> get copyWith =>
@@ -331,40 +345,42 @@ abstract class _FirebaseHomeState implements FirebaseHomeState {
       required final FirestoreChatFilter uiFilters,
       final FirestoreUser? user}) = _$FirebaseHomeStateImpl;
 
-  @override
-
   /// Is page initialization
-  bool get isPageInit;
   @override
+  bool get isPageInit;
 
   /// Is loading initial first page data
-  bool get isLoadingData;
   @override
+  bool get isLoadingData;
 
   /// Is fetching more data on scrolling
-  bool get isFetchingMoreData;
   @override
+  bool get isFetchingMoreData;
 
   /// Shows fill in data form for user that do not exist in firestore
-  bool get showFillDataForm;
   @override
+  bool get showFillDataForm;
 
   /// List of firestore users
-  FirestorePagedList<FirestoreUser> get userList;
   @override
+  FirestorePagedList<FirestoreUser> get userList;
 
   /// Used filters for users list
-  FirestoreUserFilterRequest get filters;
   @override
+  FirestoreUserFilterRequest get filters;
 
   /// Used filters from filters page
-  FirestoreChatFilter get uiFilters;
   @override
+  FirestoreChatFilter get uiFilters;
 
   /// Logged user from firestore
-  FirestoreUser? get user;
   @override
-  @JsonKey(ignore: true)
+  FirestoreUser? get user;
+
+  /// Create a copy of FirebaseHomeState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirebaseHomeStateImplCopyWith<_$FirebaseHomeStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

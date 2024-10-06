@@ -46,7 +46,9 @@ mixin _$FirebaseFillInDataState {
   /// User created date
   DateTime? get createdDate => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseFillInDataState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirebaseFillInDataStateCopyWith<FirebaseFillInDataState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -81,6 +83,8 @@ class _$FirebaseFillInDataStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirebaseFillInDataState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -172,6 +176,8 @@ class __$$FirebaseFillInDataStateImplCopyWithImpl<$Res>
       $Res Function(_$FirebaseFillInDataStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirebaseFillInDataState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -316,7 +322,9 @@ class _$FirebaseFillInDataStateImpl implements _FirebaseFillInDataState {
   int get hashCode => Object.hash(runtimeType, isSubmitting, submitSuccess,
       name, surname, age, height, avatar, localAvatar, userId, createdDate);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseFillInDataState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirebaseFillInDataStateImplCopyWith<_$FirebaseFillInDataStateImpl>
@@ -337,48 +345,50 @@ abstract class _FirebaseFillInDataState implements FirebaseFillInDataState {
       final String? userId,
       final DateTime? createdDate}) = _$FirebaseFillInDataStateImpl;
 
-  @override
-
   /// Is adding user to firestore
-  bool get isSubmitting;
   @override
+  bool get isSubmitting;
 
   /// Is user added succesfully
-  bool get submitSuccess;
   @override
+  bool get submitSuccess;
 
   /// Filled name
-  String get name;
   @override
+  String get name;
 
   /// Filled surname
-  String get surname;
   @override
+  String get surname;
 
   /// Filled age
-  int? get age;
   @override
+  int? get age;
 
   /// Filled height
-  int? get height;
   @override
+  int? get height;
 
   /// Avatar
-  String? get avatar;
   @override
+  String? get avatar;
 
   /// Picked image file avatar
-  File? get localAvatar;
   @override
+  File? get localAvatar;
 
   /// User ID
-  String? get userId;
   @override
+  String? get userId;
 
   /// User created date
-  DateTime? get createdDate;
   @override
-  @JsonKey(ignore: true)
+  DateTime? get createdDate;
+
+  /// Create a copy of FirebaseFillInDataState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirebaseFillInDataStateImplCopyWith<_$FirebaseFillInDataStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

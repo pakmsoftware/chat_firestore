@@ -22,7 +22,9 @@ mixin _$FirebaseVerifyEmailState {
   /// Logged user from firebase auth
   User? get loggedUser => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseVerifyEmailState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirebaseVerifyEmailStateCopyWith<FirebaseVerifyEmailState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -47,6 +49,8 @@ class _$FirebaseVerifyEmailStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirebaseVerifyEmailState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -88,6 +92,8 @@ class __$$FirebaseVerifyEmailStateImplCopyWithImpl<$Res>
       $Res Function(_$FirebaseVerifyEmailStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirebaseVerifyEmailState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -140,7 +146,9 @@ class _$FirebaseVerifyEmailStateImpl implements _FirebaseVerifyEmailState {
   @override
   int get hashCode => Object.hash(runtimeType, isSendingEmail, loggedUser);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseVerifyEmailState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirebaseVerifyEmailStateImplCopyWith<_$FirebaseVerifyEmailStateImpl>
@@ -153,16 +161,18 @@ abstract class _FirebaseVerifyEmailState implements FirebaseVerifyEmailState {
       {required final bool isSendingEmail,
       final User? loggedUser}) = _$FirebaseVerifyEmailStateImpl;
 
-  @override
-
   /// Is in process of sending email verification Link
-  bool get isSendingEmail;
   @override
+  bool get isSendingEmail;
 
   /// Logged user from firebase auth
-  User? get loggedUser;
   @override
-  @JsonKey(ignore: true)
+  User? get loggedUser;
+
+  /// Create a copy of FirebaseVerifyEmailState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirebaseVerifyEmailStateImplCopyWith<_$FirebaseVerifyEmailStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

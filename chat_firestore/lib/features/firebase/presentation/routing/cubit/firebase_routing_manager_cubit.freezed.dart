@@ -18,7 +18,9 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$FirebaseRoutingManagerState {
   bool get reloadPage => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseRoutingManagerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirebaseRoutingManagerStateCopyWith<FirebaseRoutingManagerState>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -45,6 +47,8 @@ class _$FirebaseRoutingManagerStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirebaseRoutingManagerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -81,6 +85,8 @@ class __$$FirebaseRoutingManagerStateImplCopyWithImpl<$Res>
       $Res Function(_$FirebaseRoutingManagerStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirebaseRoutingManagerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -121,7 +127,9 @@ class _$FirebaseRoutingManagerStateImpl
   @override
   int get hashCode => Object.hash(runtimeType, reloadPage);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseRoutingManagerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirebaseRoutingManagerStateImplCopyWith<_$FirebaseRoutingManagerStateImpl>
@@ -136,8 +144,11 @@ abstract class _FirebaseRoutingManagerState
 
   @override
   bool get reloadPage;
+
+  /// Create a copy of FirebaseRoutingManagerState
+  /// with the given fields replaced by the non-null parameter values.
   @override
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirebaseRoutingManagerStateImplCopyWith<_$FirebaseRoutingManagerStateImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

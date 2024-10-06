@@ -32,8 +32,12 @@ mixin _$FirestoreChatUser {
   /// Avatar URL
   String? get avatar => throw _privateConstructorUsedError;
 
+  /// Serializes this FirestoreChatUser to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
+
+  /// Create a copy of FirestoreChatUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreChatUserCopyWith<FirestoreChatUser> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -57,6 +61,8 @@ class _$FirestoreChatUserCopyWithImpl<$Res, $Val extends FirestoreChatUser>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreChatUser
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -105,6 +111,8 @@ class __$$FirestoreChatUserImplCopyWithImpl<$Res>
       $Res Function(_$FirestoreChatUserImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreChatUser
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -179,11 +187,13 @@ class _$FirestoreChatUserImpl extends _FirestoreChatUser {
             (identical(other.avatar, avatar) || other.avatar == avatar));
   }
 
-  @JsonKey(ignore: true)
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   int get hashCode => Object.hash(runtimeType, id, name, surname, avatar);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatUser
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreChatUserImplCopyWith<_$FirestoreChatUserImpl> get copyWith =>
@@ -209,24 +219,26 @@ abstract class _FirestoreChatUser extends FirestoreChatUser {
   factory _FirestoreChatUser.fromJson(Map<String, dynamic> json) =
       _$FirestoreChatUserImpl.fromJson;
 
-  @override
-
   /// UUID
-  String get id;
   @override
+  String get id;
 
   /// First name
-  String get name;
   @override
+  String get name;
 
   /// Last name
-  String get surname;
   @override
+  String get surname;
 
   /// Avatar URL
-  String? get avatar;
   @override
-  @JsonKey(ignore: true)
+  String? get avatar;
+
+  /// Create a copy of FirestoreChatUser
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreChatUserImplCopyWith<_$FirestoreChatUserImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

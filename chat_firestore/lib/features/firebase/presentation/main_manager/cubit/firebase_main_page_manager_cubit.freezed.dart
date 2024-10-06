@@ -25,7 +25,9 @@ mixin _$FirebaseMainPageManagerState {
   /// Extra actions for app bar
   List<Widget> get extraActions => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseMainPageManagerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirebaseMainPageManagerStateCopyWith<FirebaseMainPageManagerState>
       get copyWith => throw _privateConstructorUsedError;
 }
@@ -52,6 +54,8 @@ class _$FirebaseMainPageManagerStateCopyWithImpl<$Res,
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirebaseMainPageManagerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -98,6 +102,8 @@ class __$$FirebaseMainPageManagerStateImplCopyWithImpl<$Res>
       $Res Function(_$FirebaseMainPageManagerStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirebaseMainPageManagerState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -174,7 +180,9 @@ class _$FirebaseMainPageManagerStateImpl
   int get hashCode => Object.hash(runtimeType, currentIndex, appBarTitle,
       const DeepCollectionEquality().hash(_extraActions));
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseMainPageManagerState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirebaseMainPageManagerStateImplCopyWith<
@@ -190,20 +198,22 @@ abstract class _FirebaseMainPageManagerState
       required final String appBarTitle,
       final List<Widget> extraActions}) = _$FirebaseMainPageManagerStateImpl;
 
-  @override
-
   /// Current active index for bottom menu
-  int get currentIndex;
   @override
+  int get currentIndex;
 
   /// Title of app bar
-  String get appBarTitle;
   @override
+  String get appBarTitle;
 
   /// Extra actions for app bar
-  List<Widget> get extraActions;
   @override
-  @JsonKey(ignore: true)
+  List<Widget> get extraActions;
+
+  /// Create a copy of FirebaseMainPageManagerState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirebaseMainPageManagerStateImplCopyWith<
           _$FirebaseMainPageManagerStateImpl>
       get copyWith => throw _privateConstructorUsedError;

@@ -28,7 +28,9 @@ mixin _$FirebaseLoginState {
   /// Form password
   String get password => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseLoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirebaseLoginStateCopyWith<FirebaseLoginState> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -53,6 +55,8 @@ class _$FirebaseLoginStateCopyWithImpl<$Res, $Val extends FirebaseLoginState>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirebaseLoginState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -102,6 +106,8 @@ class __$$FirebaseLoginStateImplCopyWithImpl<$Res>
       $Res Function(_$FirebaseLoginStateImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirebaseLoginState
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -179,7 +185,9 @@ class _$FirebaseLoginStateImpl implements _FirebaseLoginState {
   int get hashCode =>
       Object.hash(runtimeType, isSubmitting, submitSucccess, email, password);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirebaseLoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirebaseLoginStateImplCopyWith<_$FirebaseLoginStateImpl> get copyWith =>
@@ -194,24 +202,26 @@ abstract class _FirebaseLoginState implements FirebaseLoginState {
       required final String email,
       required final String password}) = _$FirebaseLoginStateImpl;
 
-  @override
-
   /// Is logging in or is registering
-  bool get isSubmitting;
   @override
+  bool get isSubmitting;
 
   /// Login/Register success
-  bool get submitSucccess;
   @override
+  bool get submitSucccess;
 
   /// Form email
-  String get email;
   @override
+  String get email;
 
   /// Form password
-  String get password;
   @override
-  @JsonKey(ignore: true)
+  String get password;
+
+  /// Create a copy of FirebaseLoginState
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirebaseLoginStateImplCopyWith<_$FirebaseLoginStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

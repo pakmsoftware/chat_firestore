@@ -25,7 +25,9 @@ mixin _$FirestoreChatFilter {
   /// Max age of chat users
   int? get maxAge => throw _privateConstructorUsedError;
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatFilter
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   $FirestoreChatFilterCopyWith<FirestoreChatFilter> get copyWith =>
       throw _privateConstructorUsedError;
 }
@@ -49,6 +51,8 @@ class _$FirestoreChatFilterCopyWithImpl<$Res, $Val extends FirestoreChatFilter>
   // ignore: unused_field
   final $Res Function($Val) _then;
 
+  /// Create a copy of FirestoreChatFilter
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -92,6 +96,8 @@ class __$$FirestoreChatFilterImplCopyWithImpl<$Res>
       $Res Function(_$FirestoreChatFilterImpl) _then)
       : super(_value, _then);
 
+  /// Create a copy of FirestoreChatFilter
+  /// with the given fields replaced by the non-null parameter values.
   @pragma('vm:prefer-inline')
   @override
   $Res call({
@@ -163,7 +169,9 @@ class _$FirestoreChatFilterImpl extends _FirestoreChatFilter {
   int get hashCode => Object.hash(
       runtimeType, const DeepCollectionEquality().hash(_users), minAge, maxAge);
 
-  @JsonKey(ignore: true)
+  /// Create a copy of FirestoreChatFilter
+  /// with the given fields replaced by the non-null parameter values.
+  @JsonKey(includeFromJson: false, includeToJson: false)
   @override
   @pragma('vm:prefer-inline')
   _$$FirestoreChatFilterImplCopyWith<_$FirestoreChatFilterImpl> get copyWith =>
@@ -178,20 +186,22 @@ abstract class _FirestoreChatFilter extends FirestoreChatFilter {
       final int? maxAge}) = _$FirestoreChatFilterImpl;
   _FirestoreChatFilter._() : super._();
 
-  @override
-
   /// Chat users
-  List<FirestoreUser> get users;
   @override
+  List<FirestoreUser> get users;
 
   /// Min age of chat users
-  int? get minAge;
   @override
+  int? get minAge;
 
   /// Max age of chat users
-  int? get maxAge;
   @override
-  @JsonKey(ignore: true)
+  int? get maxAge;
+
+  /// Create a copy of FirestoreChatFilter
+  /// with the given fields replaced by the non-null parameter values.
+  @override
+  @JsonKey(includeFromJson: false, includeToJson: false)
   _$$FirestoreChatFilterImplCopyWith<_$FirestoreChatFilterImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
