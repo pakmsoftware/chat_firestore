@@ -29,5 +29,8 @@
   "register": "Sign up",
   "firebaseLogin": "Firebase Login",
   "signOut": "Sign out",
-  "fieldCannotBeEmpty": "Field cannot be empty"
+  "fieldCannotBeEmpty": "Field cannot be empty",
+  "createChat": "Create chat",
+  "chatName": "Chat name (optional)",
+  "you": "You"
 }

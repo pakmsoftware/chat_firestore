@@ -5,6 +5,9 @@ import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_me
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_message_receiver.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_user.dart';
 import 'package:chat_firestore/features/firebase/presentation/auth/cubit/firebase_auth_controller_cubit.dart';
+import 'package:chat_firestore/features/firebase/utils/firestore_timestamp_converter.dart';
+import 'package:chat_firestore/generated/l10n.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 
@@ -31,7 +34,7 @@ class FirestoreChat with _$FirestoreChat {
     @JsonKey(toJson: _mapLastMsg) FirestoreChatMessage? lastMsg,
 
     /// Last message date to order by DESC by default
-    DateTime? lastMsgTimestamp,
+    @FirestoreTimestampConverter() Object? lastMsgTimestamp,
 
     /// Custom name for group chats
     String? name,
@@ -55,17 +58,47 @@ class FirestoreChat with _$FirestoreChat {
   /// Private chat avatar
   String? get chatAvatar => receivers.first.avatar;
 
+  /// Receivers avatars
+  List<String?> get chatAvatars => receivers.map((e) => e.avatar).toList();
+
   /// Last msg date
   String? get lastMsgDateText => lastMsgTimestamp != null
-      ? (DateTime.timestamp().isTheSameDay(lastMsgTimestamp!)
-          ? DateFormat('HH:mm').format(lastMsgTimestamp!.toLocal())
-          : DateFormat('dd-MM HH:mm').format(lastMsgTimestamp!.toLocal()))
+      ? (DateTime.timestamp()
+              .isTheSameDay((lastMsgTimestamp! as Timestamp).toDate())
+          ? DateFormat('HH:mm')
+              .format((lastMsgTimestamp! as Timestamp).toDate().toLocal())
+          : DateFormat('dd-MM HH:mm')
+              .format((lastMsgTimestamp! as Timestamp).toDate().toLocal()))
       : '';
+
+  /// Last msg content text - adds 'you' prefix if the last msg is mine
+  String get lastMsgText {
+    final msgContent = lastMsg?.content ?? '';
+    if (lastMsg?.isMine ?? false) {
+      return ('${S.current.you}: $msgContent');
+    }
+
+    // Else check if group chat and show sender's name
+    if (isGroupChat) {
+      final sender = users.firstWhereOrNull((e) => e.id == lastMsg?.senderId);
+      return '${sender?.name ?? ''}: $msgContent';
+    }
+
+    return msgContent;
+  }
 
   /// Gets message sender avatar based on message [senderId]
   String? getMessageSenderAvatar(String senderId) {
     return users.firstWhereOrNull((u) => u.id == senderId)?.avatar;
   }
+
+  /// Gets message sender name based on message [senderId]
+  String? getMessageSenderName(String senderId) {
+    return users.firstWhereOrNull((u) => u.id == senderId)?.name;
+  }
+
+  /// True when number of users is more than 2
+  bool get isGroupChat => users.length > 2;
 
   /// Determines if logged user has read the last message of chat
   bool get isLastMsgRead {

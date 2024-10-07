@@ -38,7 +38,8 @@ mixin _$FirestoreChat {
   FirestoreChatMessage? get lastMsg => throw _privateConstructorUsedError;
 
   /// Last message date to order by DESC by default
-  DateTime? get lastMsgTimestamp => throw _privateConstructorUsedError;
+  @FirestoreTimestampConverter()
+  Object? get lastMsgTimestamp => throw _privateConstructorUsedError;
 
   /// Custom name for group chats
   String? get name => throw _privateConstructorUsedError;
@@ -65,7 +66,7 @@ abstract class $FirestoreChatCopyWith<$Res> {
       List<String> userIds,
       int? userIdsCount,
       @JsonKey(toJson: _mapLastMsg) FirestoreChatMessage? lastMsg,
-      DateTime? lastMsgTimestamp,
+      @FirestoreTimestampConverter() Object? lastMsgTimestamp,
       String? name});
 
   $FirestoreChatMessageCopyWith<$Res>? get lastMsg;
@@ -117,8 +118,7 @@ class _$FirestoreChatCopyWithImpl<$Res, $Val extends FirestoreChat>
               as FirestoreChatMessage?,
       lastMsgTimestamp: freezed == lastMsgTimestamp
           ? _value.lastMsgTimestamp
-          : lastMsgTimestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+          : lastMsgTimestamp,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -155,7 +155,7 @@ abstract class _$$FirestoreChatImplCopyWith<$Res>
       List<String> userIds,
       int? userIdsCount,
       @JsonKey(toJson: _mapLastMsg) FirestoreChatMessage? lastMsg,
-      DateTime? lastMsgTimestamp,
+      @FirestoreTimestampConverter() Object? lastMsgTimestamp,
       String? name});
 
   @override
@@ -206,8 +206,7 @@ class __$$FirestoreChatImplCopyWithImpl<$Res>
               as FirestoreChatMessage?,
       lastMsgTimestamp: freezed == lastMsgTimestamp
           ? _value.lastMsgTimestamp
-          : lastMsgTimestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime?,
+          : lastMsgTimestamp,
       name: freezed == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -225,7 +224,7 @@ class _$FirestoreChatImpl extends _FirestoreChat {
       required final List<String> userIds,
       this.userIdsCount,
       @JsonKey(toJson: _mapLastMsg) this.lastMsg,
-      this.lastMsgTimestamp,
+      @FirestoreTimestampConverter() this.lastMsgTimestamp,
       this.name})
       : _users = users,
         _userIds = userIds,
@@ -272,7 +271,8 @@ class _$FirestoreChatImpl extends _FirestoreChat {
 
   /// Last message date to order by DESC by default
   @override
-  final DateTime? lastMsgTimestamp;
+  @FirestoreTimestampConverter()
+  final Object? lastMsgTimestamp;
 
   /// Custom name for group chats
   @override
@@ -294,8 +294,8 @@ class _$FirestoreChatImpl extends _FirestoreChat {
             (identical(other.userIdsCount, userIdsCount) ||
                 other.userIdsCount == userIdsCount) &&
             (identical(other.lastMsg, lastMsg) || other.lastMsg == lastMsg) &&
-            (identical(other.lastMsgTimestamp, lastMsgTimestamp) ||
-                other.lastMsgTimestamp == lastMsgTimestamp) &&
+            const DeepCollectionEquality()
+                .equals(other.lastMsgTimestamp, lastMsgTimestamp) &&
             (identical(other.name, name) || other.name == name));
   }
 
@@ -308,7 +308,7 @@ class _$FirestoreChatImpl extends _FirestoreChat {
       const DeepCollectionEquality().hash(_userIds),
       userIdsCount,
       lastMsg,
-      lastMsgTimestamp,
+      const DeepCollectionEquality().hash(lastMsgTimestamp),
       name);
 
   /// Create a copy of FirestoreChat
@@ -334,7 +334,7 @@ abstract class _FirestoreChat extends FirestoreChat {
       required final List<String> userIds,
       final int? userIdsCount,
       @JsonKey(toJson: _mapLastMsg) final FirestoreChatMessage? lastMsg,
-      final DateTime? lastMsgTimestamp,
+      @FirestoreTimestampConverter() final Object? lastMsgTimestamp,
       final String? name}) = _$FirestoreChatImpl;
   _FirestoreChat._() : super._();
 
@@ -365,7 +365,8 @@ abstract class _FirestoreChat extends FirestoreChat {
 
   /// Last message date to order by DESC by default
   @override
-  DateTime? get lastMsgTimestamp;
+  @FirestoreTimestampConverter()
+  Object? get lastMsgTimestamp;
 
   /// Custom name for group chats
   @override

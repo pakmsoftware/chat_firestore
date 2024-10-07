@@ -8,6 +8,7 @@ class FirestoreUserAvatar extends StatelessWidget {
     this.avatar,
     this.localFile,
     this.diameter = 64,
+    this.borderWidth = 0,
     super.key,
   });
 
@@ -20,11 +21,18 @@ class FirestoreUserAvatar extends StatelessWidget {
   /// Avatar diameter in dp
   final double diameter;
 
+  /// White border width
+  final double borderWidth;
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      decoration: const BoxDecoration(
+      decoration: BoxDecoration(
         shape: BoxShape.circle,
+        border: Border.all(
+          color: Colors.white,
+          width: borderWidth,
+        ),
       ),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(diameter),
@@ -46,6 +54,11 @@ class FirestoreUserAvatar extends StatelessWidget {
                     width: diameter,
                     height: diameter,
                     color: Colors.grey,
+                    alignment: Alignment.center,
+                    child: const Icon(
+                      Icons.person,
+                      color: Colors.black,
+                    ),
                   )),
       ),
     );

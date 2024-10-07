@@ -13,7 +13,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 /// Page with single chat conversation
 @RoutePage()
 class FirestoreChatConversationPage extends StatelessWidget {
-  const FirestoreChatConversationPage({super.key, this.chat, this.users});
+  const FirestoreChatConversationPage({
+    super.key,
+    this.chat,
+    this.users,
+    this.chatName,
+  });
 
   /// Chat -> from chat list page
   final FirestoreChat? chat;
@@ -21,8 +26,11 @@ class FirestoreChatConversationPage extends StatelessWidget {
   /// Chat users -> from users page
   final List<FirestoreUser>? users;
 
+  /// Chat name for group chat
+  final String? chatName;
+
   String get chatTitle {
-    String? result = chat?.chatName;
+    String? result = chatName ?? chat?.chatName;
     if (result == null) {
       final loggedUserId =
           sl<FirebaseAuthControllerCubit>().state.loggedUser?.uid ?? '';
@@ -43,6 +51,7 @@ class FirestoreChatConversationPage extends StatelessWidget {
         ..init(
           chat: chat,
           users: users,
+          chatName: chatName,
         ),
       child: Builder(builder: (context) {
         return BlocBuilder<FirestoreChatConversationCubit,
@@ -85,6 +94,11 @@ class FirestoreChatConversationPage extends StatelessWidget {
                                     state.chat?.getMessageSenderAvatar(
                                   message.senderId,
                                 ),
+                                senderName: !message.isMine &&
+                                        (state.chat?.isGroupChat ?? false)
+                                    ? state.chat
+                                        ?.getMessageSenderName(message.senderId)
+                                    : null,
                                 // Avatars of users that have read message
                                 readReceiverAvatars: state.chat
                                         ?.getReadReceiverAvatars(

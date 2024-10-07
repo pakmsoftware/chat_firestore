@@ -71,7 +71,10 @@ class FirestoreChatPageCubit extends Cubit<FirestoreChatPageState> {
   }
 
   /// Handles new received message from firestore stream
-  Future<void> handleReceivedChat(FirestoreChat chat) async {
+  Future<void> handleReceivedChat(
+    FirestoreChat chat, {
+    bool moveToTop = true,
+  }) async {
     final foundChatIndex = state.chats.data.indexWhere((e) => e.id == chat.id);
 
     // Move chat to the top and assign last message to it
@@ -79,7 +82,7 @@ class FirestoreChatPageCubit extends Cubit<FirestoreChatPageState> {
       // Move chat to top
       final newChatList = List.of(state.chats.data)
         ..removeAt(foundChatIndex)
-        ..insert(0, chat);
+        ..insert(moveToTop ? 0 : foundChatIndex, chat);
 
       final newChatData = state.chats.copyWith(data: newChatList);
       emit(state.copyWith(chats: newChatData));

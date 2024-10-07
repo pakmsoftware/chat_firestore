@@ -2,6 +2,8 @@ import 'package:chat_firestore/core/di/injection_container.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_message_receiver.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_message_status.dart';
 import 'package:chat_firestore/features/firebase/presentation/auth/cubit/firebase_auth_controller_cubit.dart';
+import 'package:chat_firestore/features/firebase/utils/firestore_timestamp_converter.dart';
+import 'package:chat_firestore/features/firebase/utils/firestore_timestamp_extension.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 
@@ -18,9 +20,6 @@ class FirestoreChatMessage with _$FirestoreChatMessage {
     /// Message text content
     required String content,
 
-    /// Date of message
-    required DateTime timestamp,
-
     /// Sender UUID
     required String senderId,
 
@@ -35,6 +34,9 @@ class FirestoreChatMessage with _$FirestoreChatMessage {
     @Default(FirestoreChatMessageStatus.sent)
     @JsonKey(includeToJson: false, includeFromJson: false)
     FirestoreChatMessageStatus status,
+
+    /// Date of message
+    @FirestoreTimestampConverter() Object? timestamp,
   }) = _FirestoreChatMessage;
 
   factory FirestoreChatMessage.fromJson(Map<String, dynamic> json) =>
@@ -42,14 +44,20 @@ class FirestoreChatMessage with _$FirestoreChatMessage {
 
   FirestoreChatMessage._();
 
+  DateTime? get timestampDate => timestamp?.toDateTime();
+
   bool get isMine =>
       sl<FirebaseAuthControllerCubit>().state.loggedUser?.uid == senderId;
 
   /// Hour and minute time of message
-  String get timeHourText => DateFormat('HH:mm').format(timestamp.toLocal());
+  String get timeHourText => timestampDate != null
+      ? DateFormat('HH:mm').format(timestampDate!.toLocal())
+      : '';
 
   /// Day and month of message
-  String get dayText => DateFormat('dd.MM').format(timestamp.toLocal());
+  String get dayText => timestampDate != null
+      ? DateFormat('dd.MM').format(timestampDate!.toLocal())
+      : '';
 }
 
 List<Map<String, dynamic>> _mapReceivers(

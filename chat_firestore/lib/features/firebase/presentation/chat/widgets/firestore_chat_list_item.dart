@@ -1,6 +1,7 @@
 import 'package:chat_firestore/core/router/app_router.dart';
 import 'package:chat_firestore/core/router/app_router.gr.dart';
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat.dart';
+import 'package:chat_firestore/features/firebase/presentation/chat/widgets/firestore_group_chat_avatar.dart';
 import 'package:chat_firestore/features/firebase/presentation/home/widgets/firestore_user_avatar.dart';
 import 'package:chat_firestore/core/di/injection_container.dart';
 import 'package:flutter/material.dart';
@@ -26,10 +27,15 @@ class FirestoreChatListItem extends StatelessWidget {
         child: Row(
           children: [
             // Avatar
-            FirestoreUserAvatar(
-              avatar: chat.chatAvatar,
-              diameter: 48,
-            ),
+            if (chat.isGroupChat)
+              FirestoreGroupChatAvatar(
+                avatars: chat.chatAvatars,
+              )
+            else
+              FirestoreUserAvatar(
+                avatar: chat.chatAvatar,
+                diameter: 48,
+              ),
             const SizedBox(width: 8),
 
             // Chat name / Last message
@@ -50,7 +56,7 @@ class FirestoreChatListItem extends StatelessWidget {
 
                   // Last message
                   Text(
-                    chat.lastMsg?.content ?? '',
+                    chat.lastMsgText,
                     style: TextStyle(
                       fontWeight: !isRead ? FontWeight.bold : FontWeight.normal,
                       fontSize: !isRead ? 16 : 14,

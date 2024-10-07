@@ -1,3 +1,4 @@
+import 'package:chat_firestore/core/helper/context_extension.dart';
 import 'package:chat_firestore/core/router/app_router.dart';
 import 'package:chat_firestore/core/router/app_router.gr.dart';
 import 'package:chat_firestore/features/firebase/presentation/home/cubit/firebase_home_cubit.dart';
@@ -10,6 +11,7 @@ import 'package:chat_firestore/features/firebase/presentation/main_manager/cubit
 import 'package:chat_firestore/features/firebase/presentation/routing/cubit/firebase_routing_manager_cubit.dart';
 import 'package:chat_firestore/core/di/injection_container.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:chat_firestore/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -87,6 +89,30 @@ class FirebaseHomePage extends StatelessWidget {
                               child: Divider(),
                             ),
                             fetchMoreThreshold: 50,
+                          ),
+                        ),
+                      if (state.isSelectUsersMode)
+                        Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8),
+                          child: SizedBox(
+                            width: context.maxWidth,
+                            child: ElevatedButton(
+                              onPressed: () {
+                                // Add logged user to the selected list
+                                context
+                                    .read<FirebaseHomeCubit>()
+                                    .addMeToChatUsers();
+                                sl<AppRouter>().push(
+                                  FirestoreCreateGroupChatRoute(
+                                    groupChatUsers: context
+                                        .read<FirebaseHomeCubit>()
+                                        .state
+                                        .selectedUsersForGroupChat,
+                                  ),
+                                );
+                              },
+                              child: Text(S.current.createChat),
+                            ),
                           ),
                         ),
                     ],

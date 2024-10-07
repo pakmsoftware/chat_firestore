@@ -94,8 +94,9 @@ class FirestoreChatPage extends StatelessWidget {
     }
 
     // Else move received message to the top or insert new chat if it's message from new chat
-    context
-        .read<FirestoreChatPageCubit>()
-        .handleReceivedChat(state.receivedChat!);
+    context.read<FirestoreChatPageCubit>().handleReceivedChat(
+          state.receivedChat!,
+          moveToTop: state.moveReceivedChatToTop,
+        );
   }
 }

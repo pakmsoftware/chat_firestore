@@ -2,6 +2,8 @@ import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_me
 import 'package:chat_firestore/features/firebase/presentation/chat/widgets/firestore_message_bubble_status.dart';
 import 'package:chat_firestore/features/firebase/presentation/home/widgets/firestore_user_avatar.dart';
 import 'package:chat_firestore/features/firebase/utils/datetime_extension.dart';
+import 'package:chat_firestore/features/firebase/utils/firestore_timestamp_extension.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 /// Message bubble
@@ -13,6 +15,7 @@ class FirestoreMessageBubble extends StatelessWidget {
     this.senderAvatar,
     this.showMsgStatus = false,
     this.readReceiverAvatars = const [],
+    this.senderName,
     super.key,
   });
 
@@ -28,6 +31,9 @@ class FirestoreMessageBubble extends StatelessWidget {
   /// Avatar path of message sender. Not null only for other users messages
   final String? senderAvatar;
 
+  /// Sender name. Not null only for other users messages in group chats
+  final String? senderName;
+
   /// Determines if status is shown below message
   final bool showMsgStatus;
 
@@ -42,10 +48,11 @@ class FirestoreMessageBubble extends StatelessWidget {
     if (messagePrevious == null) {
       return false;
     }
-    return message.timestamp.isMoreThanMinutesDifference(
-      pastDate: messagePrevious!.timestamp,
-      minutes: 5,
-    );
+    return (message.timestamp?.toDateTime())?.isMoreThanMinutesDifference(
+          pastDate: (messagePrevious!.timestamp as Timestamp).toDate(),
+          minutes: 5,
+        ) ??
+        false;
   }
 
   /// Determines if current [message] is in the same day as [messagePrevious] on chat
@@ -53,7 +60,10 @@ class FirestoreMessageBubble extends StatelessWidget {
     if (messagePrevious == null) {
       return false;
     }
-    return message.timestamp.isTheSameDay(pastDate: messagePrevious!.timestamp);
+    return (message.timestamp?.toDateTime())?.isTheSameDay(
+          pastDate: (messagePrevious!.timestamp as Timestamp).toDate(),
+        ) ??
+        true;
   }
 
   @override
@@ -80,13 +90,21 @@ class FirestoreMessageBubble extends StatelessWidget {
                 ? CrossAxisAlignment.end
                 : CrossAxisAlignment.start,
             children: [
-              // Message time
-              if (isPreviousMessageMoreThan5Minutes ||
-                  !isPreviousMessageTheSameSender)
-                Padding(
-                  padding: const EdgeInsets.only(left: 40),
-                  child: Text(message.timeHourText),
+              Padding(
+                padding: const EdgeInsets.only(left: 40),
+                child: Row(
+                  mainAxisAlignment: message.isMine
+                      ? MainAxisAlignment.end
+                      : MainAxisAlignment.start,
+                  children: [
+                    if (senderName != null) Text('${senderName ?? ''} '),
+                    // Message time
+                    if (isPreviousMessageMoreThan5Minutes ||
+                        !isPreviousMessageTheSameSender)
+                      Text(message.timeHourText),
+                  ],
                 ),
+              ),
               Row(
                 mainAxisAlignment: message.isMine
                     ? MainAxisAlignment.end

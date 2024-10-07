@@ -26,9 +26,6 @@ mixin _$FirestoreChatMessage {
   /// Message text content
   String get content => throw _privateConstructorUsedError;
 
-  /// Date of message
-  DateTime get timestamp => throw _privateConstructorUsedError;
-
   /// Sender UUID
   String get senderId => throw _privateConstructorUsedError;
 
@@ -43,6 +40,10 @@ mixin _$FirestoreChatMessage {
   /// Status of message. Valid and shown only for message sender
   @JsonKey(includeToJson: false, includeFromJson: false)
   FirestoreChatMessageStatus get status => throw _privateConstructorUsedError;
+
+  /// Date of message
+  @FirestoreTimestampConverter()
+  Object? get timestamp => throw _privateConstructorUsedError;
 
   /// Serializes this FirestoreChatMessage to a JSON map.
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -63,13 +64,13 @@ abstract class $FirestoreChatMessageCopyWith<$Res> {
   $Res call(
       {String id,
       String content,
-      DateTime timestamp,
       String senderId,
       String chatId,
       @JsonKey(toJson: _mapReceivers)
       List<FirestoreChatMessageReceiver> receivers,
       @JsonKey(includeToJson: false, includeFromJson: false)
-      FirestoreChatMessageStatus status});
+      FirestoreChatMessageStatus status,
+      @FirestoreTimestampConverter() Object? timestamp});
 }
 
 /// @nodoc
@@ -90,11 +91,11 @@ class _$FirestoreChatMessageCopyWithImpl<$Res,
   $Res call({
     Object? id = null,
     Object? content = null,
-    Object? timestamp = null,
     Object? senderId = null,
     Object? chatId = null,
     Object? receivers = null,
     Object? status = null,
+    Object? timestamp = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -105,10 +106,6 @@ class _$FirestoreChatMessageCopyWithImpl<$Res,
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      timestamp: null == timestamp
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       senderId: null == senderId
           ? _value.senderId
           : senderId // ignore: cast_nullable_to_non_nullable
@@ -125,6 +122,7 @@ class _$FirestoreChatMessageCopyWithImpl<$Res,
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as FirestoreChatMessageStatus,
+      timestamp: freezed == timestamp ? _value.timestamp : timestamp,
     ) as $Val);
   }
 }
@@ -140,13 +138,13 @@ abstract class _$$FirestoreChatMessageImplCopyWith<$Res>
   $Res call(
       {String id,
       String content,
-      DateTime timestamp,
       String senderId,
       String chatId,
       @JsonKey(toJson: _mapReceivers)
       List<FirestoreChatMessageReceiver> receivers,
       @JsonKey(includeToJson: false, includeFromJson: false)
-      FirestoreChatMessageStatus status});
+      FirestoreChatMessageStatus status,
+      @FirestoreTimestampConverter() Object? timestamp});
 }
 
 /// @nodoc
@@ -164,11 +162,11 @@ class __$$FirestoreChatMessageImplCopyWithImpl<$Res>
   $Res call({
     Object? id = null,
     Object? content = null,
-    Object? timestamp = null,
     Object? senderId = null,
     Object? chatId = null,
     Object? receivers = null,
     Object? status = null,
+    Object? timestamp = freezed,
   }) {
     return _then(_$FirestoreChatMessageImpl(
       id: null == id
@@ -179,10 +177,6 @@ class __$$FirestoreChatMessageImplCopyWithImpl<$Res>
           ? _value.content
           : content // ignore: cast_nullable_to_non_nullable
               as String,
-      timestamp: null == timestamp
-          ? _value.timestamp
-          : timestamp // ignore: cast_nullable_to_non_nullable
-              as DateTime,
       senderId: null == senderId
           ? _value.senderId
           : senderId // ignore: cast_nullable_to_non_nullable
@@ -199,6 +193,7 @@ class __$$FirestoreChatMessageImplCopyWithImpl<$Res>
           ? _value.status
           : status // ignore: cast_nullable_to_non_nullable
               as FirestoreChatMessageStatus,
+      timestamp: freezed == timestamp ? _value.timestamp : timestamp,
     ));
   }
 }
@@ -209,13 +204,13 @@ class _$FirestoreChatMessageImpl extends _FirestoreChatMessage {
   _$FirestoreChatMessageImpl(
       {required this.id,
       required this.content,
-      required this.timestamp,
       required this.senderId,
       required this.chatId,
       @JsonKey(toJson: _mapReceivers)
       required final List<FirestoreChatMessageReceiver> receivers,
       @JsonKey(includeToJson: false, includeFromJson: false)
-      this.status = FirestoreChatMessageStatus.sent})
+      this.status = FirestoreChatMessageStatus.sent,
+      @FirestoreTimestampConverter() this.timestamp})
       : _receivers = receivers,
         super._();
 
@@ -229,10 +224,6 @@ class _$FirestoreChatMessageImpl extends _FirestoreChatMessage {
   /// Message text content
   @override
   final String content;
-
-  /// Date of message
-  @override
-  final DateTime timestamp;
 
   /// Sender UUID
   @override
@@ -259,9 +250,14 @@ class _$FirestoreChatMessageImpl extends _FirestoreChatMessage {
   @JsonKey(includeToJson: false, includeFromJson: false)
   final FirestoreChatMessageStatus status;
 
+  /// Date of message
+  @override
+  @FirestoreTimestampConverter()
+  final Object? timestamp;
+
   @override
   String toString() {
-    return 'FirestoreChatMessage(id: $id, content: $content, timestamp: $timestamp, senderId: $senderId, chatId: $chatId, receivers: $receivers, status: $status)';
+    return 'FirestoreChatMessage(id: $id, content: $content, senderId: $senderId, chatId: $chatId, receivers: $receivers, status: $status, timestamp: $timestamp)';
   }
 
   @override
@@ -271,20 +267,26 @@ class _$FirestoreChatMessageImpl extends _FirestoreChatMessage {
             other is _$FirestoreChatMessageImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.content, content) || other.content == content) &&
-            (identical(other.timestamp, timestamp) ||
-                other.timestamp == timestamp) &&
             (identical(other.senderId, senderId) ||
                 other.senderId == senderId) &&
             (identical(other.chatId, chatId) || other.chatId == chatId) &&
             const DeepCollectionEquality()
                 .equals(other._receivers, _receivers) &&
-            (identical(other.status, status) || other.status == status));
+            (identical(other.status, status) || other.status == status) &&
+            const DeepCollectionEquality().equals(other.timestamp, timestamp));
   }
 
   @JsonKey(includeFromJson: false, includeToJson: false)
   @override
-  int get hashCode => Object.hash(runtimeType, id, content, timestamp, senderId,
-      chatId, const DeepCollectionEquality().hash(_receivers), status);
+  int get hashCode => Object.hash(
+      runtimeType,
+      id,
+      content,
+      senderId,
+      chatId,
+      const DeepCollectionEquality().hash(_receivers),
+      status,
+      const DeepCollectionEquality().hash(timestamp));
 
   /// Create a copy of FirestoreChatMessage
   /// with the given fields replaced by the non-null parameter values.
@@ -306,15 +308,16 @@ class _$FirestoreChatMessageImpl extends _FirestoreChatMessage {
 
 abstract class _FirestoreChatMessage extends FirestoreChatMessage {
   factory _FirestoreChatMessage(
-      {required final String id,
-      required final String content,
-      required final DateTime timestamp,
-      required final String senderId,
-      required final String chatId,
-      @JsonKey(toJson: _mapReceivers)
-      required final List<FirestoreChatMessageReceiver> receivers,
-      @JsonKey(includeToJson: false, includeFromJson: false)
-      final FirestoreChatMessageStatus status}) = _$FirestoreChatMessageImpl;
+          {required final String id,
+          required final String content,
+          required final String senderId,
+          required final String chatId,
+          @JsonKey(toJson: _mapReceivers)
+          required final List<FirestoreChatMessageReceiver> receivers,
+          @JsonKey(includeToJson: false, includeFromJson: false)
+          final FirestoreChatMessageStatus status,
+          @FirestoreTimestampConverter() final Object? timestamp}) =
+      _$FirestoreChatMessageImpl;
   _FirestoreChatMessage._() : super._();
 
   factory _FirestoreChatMessage.fromJson(Map<String, dynamic> json) =
@@ -327,10 +330,6 @@ abstract class _FirestoreChatMessage extends FirestoreChatMessage {
   /// Message text content
   @override
   String get content;
-
-  /// Date of message
-  @override
-  DateTime get timestamp;
 
   /// Sender UUID
   @override
@@ -349,6 +348,11 @@ abstract class _FirestoreChatMessage extends FirestoreChatMessage {
   @override
   @JsonKey(includeToJson: false, includeFromJson: false)
   FirestoreChatMessageStatus get status;
+
+  /// Date of message
+  @override
+  @FirestoreTimestampConverter()
+  Object? get timestamp;
 
   /// Create a copy of FirestoreChatMessage
   /// with the given fields replaced by the non-null parameter values.

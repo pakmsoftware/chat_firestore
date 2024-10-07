@@ -24,9 +24,11 @@ class FirebaseHomeCubit extends Cubit<FirebaseHomeState> {
           isLoadingData: false,
           isPageInit: false,
           showFillDataForm: false,
+          isSelectUsersMode: false,
           userList: FirestorePagedList.empty(),
           filters: FirestoreUserFilterRequest.empty(),
           uiFilters: FirestoreChatFilter.empty(),
+          selectedUsersForGroupChat: [],
         ));
 
   final IFirestoreRepository _dbRepository;
@@ -122,5 +124,32 @@ class FirebaseHomeCubit extends Cubit<FirebaseHomeState> {
 
     emit(state.copyWith(filters: newFilters));
     await fetchMoreUsers(useFirstPage: true);
+  }
+
+  /// Switch modes betweern creating single user chat and group chat
+  void switchMode() {
+    emit(state.copyWith(isSelectUsersMode: !state.isSelectUsersMode));
+  }
+
+  /// Select user for a group chat
+  void checkUser(FirestoreUser user) {
+    final newList = List.of(state.selectedUsersForGroupChat)..add(user);
+    emit(state.copyWith(selectedUsersForGroupChat: newList));
+  }
+
+  /// Uncheck user for a group chat creation
+  void uncheckUser(FirestoreUser user) {
+    final newList = List.of(state.selectedUsersForGroupChat)
+      ..removeWhere((e) => e.id == user.id);
+    emit(state.copyWith(selectedUsersForGroupChat: newList));
+  }
+
+  /// Just before going to create group chat page, adds logged user to group chat users
+  void addMeToChatUsers() {
+    if (state.user == null ||
+        state.selectedUsersForGroupChat.any((e) => e.id == state.user?.id)) {
+      return;
+    }
+    checkUser(state.user!);
   }
 }

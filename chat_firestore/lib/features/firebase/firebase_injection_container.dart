@@ -20,6 +20,7 @@ import 'package:chat_firestore/features/firebase/presentation/chat/cubit/firesto
 import 'package:chat_firestore/features/firebase/presentation/chat/cubit/firestore_chat_filter_page_cubit.dart';
 import 'package:chat_firestore/features/firebase/presentation/chat/cubit/firestore_chat_listener_cubit.dart';
 import 'package:chat_firestore/features/firebase/presentation/chat/cubit/firestore_chat_page_cubit.dart';
+import 'package:chat_firestore/features/firebase/presentation/chat/cubit/firestore_create_group_chat_page_cubit.dart';
 import 'package:chat_firestore/features/firebase/presentation/home/cubit/firebase_fill_in_data_cubit.dart';
 import 'package:chat_firestore/features/firebase/presentation/home/cubit/firebase_home_cubit.dart';
 import 'package:chat_firestore/features/firebase/presentation/login/cubit/firebase_login_cubit.dart';
@@ -54,6 +55,8 @@ mixin FirebaseInjectionContainer on Injector {
 
     // CUBIT
     sl.registerFactory<FirebaseLoginCubit>(() => FirebaseLoginCubit(sl()));
+    sl.registerFactory<FirestoreCreateGroupChatPageCubit>(
+        FirestoreCreateGroupChatPageCubit.new);
     sl.registerFactory<FirestoreChatFilterPageCubit>(
         FirestoreChatFilterPageCubit.new);
     sl.registerFactory<FirestoreChatConversationCubit>(

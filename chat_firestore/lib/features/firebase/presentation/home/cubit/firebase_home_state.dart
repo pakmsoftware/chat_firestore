@@ -15,8 +15,14 @@ class FirebaseHomeState with _$FirebaseHomeState {
     /// Shows fill in data form for user that do not exist in firestore
     required bool showFillDataForm,
 
+    /// Checkboxes next to users mode for creating a group caht
+    required bool isSelectUsersMode,
+
     /// List of firestore users
     required FirestorePagedList<FirestoreUser> userList,
+
+    /// Selected users for group chat
+    required List<FirestoreUser> selectedUsersForGroupChat,
 
     /// Used filters for users list
     required FirestoreUserFilterRequest filters,
@@ -27,4 +33,11 @@ class FirebaseHomeState with _$FirebaseHomeState {
     /// Logged user from firestore
     FirestoreUser? user,
   }) = _FirebaseHomeState;
+
+  FirebaseHomeState._();
+
+  /// Determines if [user] is selected for group chat
+  bool isUserSelected(FirestoreUser user) {
+    return selectedUsersForGroupChat.any((e) => e.id == user.id);
+  }
 }

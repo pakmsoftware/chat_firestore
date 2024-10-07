@@ -16,6 +16,9 @@ final _privateConstructorUsedError = UnsupportedError(
 
 /// @nodoc
 mixin _$FirestoreChatListenerState {
+  /// Determines if received chat should be moved to top if it already exists on chat page
+  bool get moveReceivedChatToTop => throw _privateConstructorUsedError;
+
   /// Newest message chat received
   FirestoreChat? get receivedChat => throw _privateConstructorUsedError;
 
@@ -33,7 +36,7 @@ abstract class $FirestoreChatListenerStateCopyWith<$Res> {
       _$FirestoreChatListenerStateCopyWithImpl<$Res,
           FirestoreChatListenerState>;
   @useResult
-  $Res call({FirestoreChat? receivedChat});
+  $Res call({bool moveReceivedChatToTop, FirestoreChat? receivedChat});
 
   $FirestoreChatCopyWith<$Res>? get receivedChat;
 }
@@ -54,9 +57,14 @@ class _$FirestoreChatListenerStateCopyWithImpl<$Res,
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? moveReceivedChatToTop = null,
     Object? receivedChat = freezed,
   }) {
     return _then(_value.copyWith(
+      moveReceivedChatToTop: null == moveReceivedChatToTop
+          ? _value.moveReceivedChatToTop
+          : moveReceivedChatToTop // ignore: cast_nullable_to_non_nullable
+              as bool,
       receivedChat: freezed == receivedChat
           ? _value.receivedChat
           : receivedChat // ignore: cast_nullable_to_non_nullable
@@ -88,7 +96,7 @@ abstract class _$$FirestoreChatListenerStateImplCopyWith<$Res>
       __$$FirestoreChatListenerStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({FirestoreChat? receivedChat});
+  $Res call({bool moveReceivedChatToTop, FirestoreChat? receivedChat});
 
   @override
   $FirestoreChatCopyWith<$Res>? get receivedChat;
@@ -109,9 +117,14 @@ class __$$FirestoreChatListenerStateImplCopyWithImpl<$Res>
   @pragma('vm:prefer-inline')
   @override
   $Res call({
+    Object? moveReceivedChatToTop = null,
     Object? receivedChat = freezed,
   }) {
     return _then(_$FirestoreChatListenerStateImpl(
+      moveReceivedChatToTop: null == moveReceivedChatToTop
+          ? _value.moveReceivedChatToTop
+          : moveReceivedChatToTop // ignore: cast_nullable_to_non_nullable
+              as bool,
       receivedChat: freezed == receivedChat
           ? _value.receivedChat
           : receivedChat // ignore: cast_nullable_to_non_nullable
@@ -123,7 +136,12 @@ class __$$FirestoreChatListenerStateImplCopyWithImpl<$Res>
 /// @nodoc
 
 class _$FirestoreChatListenerStateImpl implements _FirestoreChatListenerState {
-  _$FirestoreChatListenerStateImpl({this.receivedChat});
+  _$FirestoreChatListenerStateImpl(
+      {required this.moveReceivedChatToTop, this.receivedChat});
+
+  /// Determines if received chat should be moved to top if it already exists on chat page
+  @override
+  final bool moveReceivedChatToTop;
 
   /// Newest message chat received
   @override
@@ -131,7 +149,7 @@ class _$FirestoreChatListenerStateImpl implements _FirestoreChatListenerState {
 
   @override
   String toString() {
-    return 'FirestoreChatListenerState(receivedChat: $receivedChat)';
+    return 'FirestoreChatListenerState(moveReceivedChatToTop: $moveReceivedChatToTop, receivedChat: $receivedChat)';
   }
 
   @override
@@ -139,12 +157,15 @@ class _$FirestoreChatListenerStateImpl implements _FirestoreChatListenerState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$FirestoreChatListenerStateImpl &&
+            (identical(other.moveReceivedChatToTop, moveReceivedChatToTop) ||
+                other.moveReceivedChatToTop == moveReceivedChatToTop) &&
             (identical(other.receivedChat, receivedChat) ||
                 other.receivedChat == receivedChat));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, receivedChat);
+  int get hashCode =>
+      Object.hash(runtimeType, moveReceivedChatToTop, receivedChat);
 
   /// Create a copy of FirestoreChatListenerState
   /// with the given fields replaced by the non-null parameter values.
@@ -158,8 +179,13 @@ class _$FirestoreChatListenerStateImpl implements _FirestoreChatListenerState {
 
 abstract class _FirestoreChatListenerState
     implements FirestoreChatListenerState {
-  factory _FirestoreChatListenerState({final FirestoreChat? receivedChat}) =
-      _$FirestoreChatListenerStateImpl;
+  factory _FirestoreChatListenerState(
+      {required final bool moveReceivedChatToTop,
+      final FirestoreChat? receivedChat}) = _$FirestoreChatListenerStateImpl;
+
+  /// Determines if received chat should be moved to top if it already exists on chat page
+  @override
+  bool get moveReceivedChatToTop;
 
   /// Newest message chat received
   @override

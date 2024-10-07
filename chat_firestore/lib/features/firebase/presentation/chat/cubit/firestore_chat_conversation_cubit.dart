@@ -11,6 +11,8 @@ import 'package:chat_firestore/features/firebase/domain/models/firestore_user.da
 import 'package:chat_firestore/features/firebase/domain/repositories/i_firestore_chat_repository.dart';
 import 'package:chat_firestore/features/firebase/presentation/auth/cubit/firebase_auth_controller_cubit.dart';
 import 'package:chat_firestore/core/di/injection_container.dart';
+import 'package:chat_firestore/features/firebase/presentation/chat/cubit/firestore_chat_listener_cubit.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:uuid/uuid.dart';
@@ -49,13 +51,14 @@ class FirestoreChatConversationCubit
   Future<void> init({
     FirestoreChat? chat,
     List<FirestoreUser>? users,
+    String? chatName,
   }) async {
     emit(state.copyWith(isLoadingData: true));
     const uuid = Uuid();
     FirestoreChat? loadedChat;
 
     // Load chat from [chat] or from firestore
-    if (chat != null) {
+    if (chat != null && chatName == null) {
       loadedChat = chat;
       emit(state.copyWith(chat: loadedChat));
     } else if (users != null) {
@@ -68,10 +71,21 @@ class FirestoreChatConversationCubit
           id: uuid.v4(),
           users: users.map((e) => e.toChatUser()).toList(),
           userIds: users.map((e) => e.id).toList(),
+          name: chatName,
         );
         await _chatRepository.addChat(loadedChat);
         emit(state.copyWith(chat: loadedChat));
       } else {
+        // If chat names are different -> create new group chat
+        if (loadedChat.chatName != chatName) {
+          loadedChat = FirestoreChat(
+            id: uuid.v4(),
+            users: loadedChat.users,
+            userIds: loadedChat.userIds,
+            name: chatName,
+          );
+          await _chatRepository.addChat(loadedChat);
+        }
         emit(state.copyWith(chat: loadedChat));
       }
     }
@@ -134,6 +148,14 @@ class FirestoreChatConversationCubit
           messageToSend: receivedMessage,
           markMessageAsSent: false,
         ));
+        // Inform central chat listener cubit about the change as central chat listener listens for latest chat
+        // so marking older chat messages as read won't be caught
+        if (state.chat != null) {
+          sl<FirestoreChatListenerCubit>().handleReadMessage(
+            message: receivedMessage,
+            relatedChat: state.chat!,
+          );
+        }
         return receivedMessage;
       }
     }
@@ -223,7 +245,7 @@ class FirestoreChatConversationCubit
     final messageToSend = FirestoreChatMessage(
       id: uuid.v4(),
       content: state.messageToSend?.trim() ?? '',
-      timestamp: DateTime.timestamp(),
+      timestamp: FieldValue.serverTimestamp(),
       senderId: sender?.uid ?? '',
       chatId: state.chat?.id ?? '',
       receivers: state.receiverIds

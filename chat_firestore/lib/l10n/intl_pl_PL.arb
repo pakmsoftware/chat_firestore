@@ -29,5 +29,8 @@
   "register": "Zarejestruj",
   "firebaseLogin": "Logowanie Firebase",
   "signOut": "Wyloguj się",
-  "fieldCannotBeEmpty": "Pole nie moze być puste"
+  "fieldCannotBeEmpty": "Pole nie moze być puste",
+  "createChat": "Utwórz chat",
+  "chatName": "Nazwa chatu (opcjonalnie)",
+  "you": "Ty"
 }

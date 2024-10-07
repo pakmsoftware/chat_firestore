@@ -8,13 +8,13 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'package:auto_route/auto_route.dart' as _i13;
+import 'package:auto_route/auto_route.dart' as _i14;
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat.dart'
-    as _i16;
-import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_filter.dart'
-    as _i18;
-import 'package:chat_firestore/features/firebase/domain/models/firestore_user.dart'
     as _i17;
+import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_filter.dart'
+    as _i19;
+import 'package:chat_firestore/features/firebase/domain/models/firestore_user.dart'
+    as _i18;
 import 'package:chat_firestore/features/firebase/presentation/auth/widgets/firebase_auth_controller_page.dart'
     as _i1;
 import 'package:chat_firestore/features/firebase/presentation/auth/widgets/firebase_auth_loading_page.dart'
@@ -23,29 +23,31 @@ import 'package:chat_firestore/features/firebase/presentation/chat/widgets/fires
     as _i8;
 import 'package:chat_firestore/features/firebase/presentation/chat/widgets/firestore_chat_page.dart'
     as _i9;
+import 'package:chat_firestore/features/firebase/presentation/chat/widgets/firestore_create_group_chat_page.dart'
+    as _i10;
 import 'package:chat_firestore/features/firebase/presentation/chat/widgets/firestore_filter_page.dart'
-    as _i11;
+    as _i12;
 import 'package:chat_firestore/features/firebase/presentation/home/widgets/firebase_fill_in_data_page.dart'
     as _i3;
 import 'package:chat_firestore/features/firebase/presentation/home/widgets/firebase_home_page.dart'
     as _i4;
 import 'package:chat_firestore/features/firebase/presentation/home/widgets/firestore_edit_user_page.dart'
-    as _i10;
+    as _i11;
 import 'package:chat_firestore/features/firebase/presentation/home/widgets/firestore_user_details_page.dart'
-    as _i12;
+    as _i13;
 import 'package:chat_firestore/features/firebase/presentation/login/widgets/firebase_login_page.dart'
     as _i5;
 import 'package:chat_firestore/features/firebase/presentation/main_manager/widgets/firebase_main_page.dart'
     as _i6;
 import 'package:chat_firestore/features/firebase/presentation/verify_email/widgets/firebase_verify_email_page.dart'
     as _i7;
-import 'package:firebase_auth/firebase_auth.dart' as _i14;
-import 'package:flutter/material.dart' as _i15;
+import 'package:firebase_auth/firebase_auth.dart' as _i15;
+import 'package:flutter/material.dart' as _i16;
 
 /// generated route for
 /// [_i1.FirebaseAuthControllerPage]
-class FirebaseAuthControllerRoute extends _i13.PageRouteInfo<void> {
-  const FirebaseAuthControllerRoute({List<_i13.PageRouteInfo>? children})
+class FirebaseAuthControllerRoute extends _i14.PageRouteInfo<void> {
+  const FirebaseAuthControllerRoute({List<_i14.PageRouteInfo>? children})
       : super(
           FirebaseAuthControllerRoute.name,
           initialChildren: children,
@@ -53,7 +55,7 @@ class FirebaseAuthControllerRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'FirebaseAuthControllerRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i1.FirebaseAuthControllerPage();
@@ -63,8 +65,8 @@ class FirebaseAuthControllerRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i2.FirebaseAuthLoadingPage]
-class FirebaseAuthLoadingRoute extends _i13.PageRouteInfo<void> {
-  const FirebaseAuthLoadingRoute({List<_i13.PageRouteInfo>? children})
+class FirebaseAuthLoadingRoute extends _i14.PageRouteInfo<void> {
+  const FirebaseAuthLoadingRoute({List<_i14.PageRouteInfo>? children})
       : super(
           FirebaseAuthLoadingRoute.name,
           initialChildren: children,
@@ -72,7 +74,7 @@ class FirebaseAuthLoadingRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'FirebaseAuthLoadingRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i2.FirebaseAuthLoadingPage();
@@ -82,8 +84,8 @@ class FirebaseAuthLoadingRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i3.FirebaseFillInDataPage]
-class FirebaseFillInDataRoute extends _i13.PageRouteInfo<void> {
-  const FirebaseFillInDataRoute({List<_i13.PageRouteInfo>? children})
+class FirebaseFillInDataRoute extends _i14.PageRouteInfo<void> {
+  const FirebaseFillInDataRoute({List<_i14.PageRouteInfo>? children})
       : super(
           FirebaseFillInDataRoute.name,
           initialChildren: children,
@@ -91,7 +93,7 @@ class FirebaseFillInDataRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'FirebaseFillInDataRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i3.FirebaseFillInDataPage();
@@ -101,8 +103,8 @@ class FirebaseFillInDataRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i4.FirebaseHomePage]
-class FirebaseHomeRoute extends _i13.PageRouteInfo<void> {
-  const FirebaseHomeRoute({List<_i13.PageRouteInfo>? children})
+class FirebaseHomeRoute extends _i14.PageRouteInfo<void> {
+  const FirebaseHomeRoute({List<_i14.PageRouteInfo>? children})
       : super(
           FirebaseHomeRoute.name,
           initialChildren: children,
@@ -110,7 +112,7 @@ class FirebaseHomeRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'FirebaseHomeRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i4.FirebaseHomePage();
@@ -120,8 +122,8 @@ class FirebaseHomeRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i5.FirebaseLoginPage]
-class FirebaseLoginRoute extends _i13.PageRouteInfo<void> {
-  const FirebaseLoginRoute({List<_i13.PageRouteInfo>? children})
+class FirebaseLoginRoute extends _i14.PageRouteInfo<void> {
+  const FirebaseLoginRoute({List<_i14.PageRouteInfo>? children})
       : super(
           FirebaseLoginRoute.name,
           initialChildren: children,
@@ -129,7 +131,7 @@ class FirebaseLoginRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'FirebaseLoginRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i5.FirebaseLoginPage();
@@ -139,8 +141,8 @@ class FirebaseLoginRoute extends _i13.PageRouteInfo<void> {
 
 /// generated route for
 /// [_i6.FirebaseMainPage]
-class FirebaseMainRoute extends _i13.PageRouteInfo<void> {
-  const FirebaseMainRoute({List<_i13.PageRouteInfo>? children})
+class FirebaseMainRoute extends _i14.PageRouteInfo<void> {
+  const FirebaseMainRoute({List<_i14.PageRouteInfo>? children})
       : super(
           FirebaseMainRoute.name,
           initialChildren: children,
@@ -148,7 +150,7 @@ class FirebaseMainRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'FirebaseMainRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i6.FirebaseMainPage();
@@ -159,11 +161,11 @@ class FirebaseMainRoute extends _i13.PageRouteInfo<void> {
 /// generated route for
 /// [_i7.FirebaseVerifyEmailPage]
 class FirebaseVerifyEmailRoute
-    extends _i13.PageRouteInfo<FirebaseVerifyEmailRouteArgs> {
+    extends _i14.PageRouteInfo<FirebaseVerifyEmailRouteArgs> {
   FirebaseVerifyEmailRoute({
-    _i14.User? user,
-    _i15.Key? key,
-    List<_i13.PageRouteInfo>? children,
+    _i15.User? user,
+    _i16.Key? key,
+    List<_i14.PageRouteInfo>? children,
   }) : super(
           FirebaseVerifyEmailRoute.name,
           args: FirebaseVerifyEmailRouteArgs(
@@ -175,7 +177,7 @@ class FirebaseVerifyEmailRoute
 
   static const String name = 'FirebaseVerifyEmailRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<FirebaseVerifyEmailRouteArgs>(
@@ -194,9 +196,9 @@ class FirebaseVerifyEmailRouteArgs {
     this.key,
   });
 
-  final _i14.User? user;
+  final _i15.User? user;
 
-  final _i15.Key? key;
+  final _i16.Key? key;
 
   @override
   String toString() {
@@ -207,25 +209,27 @@ class FirebaseVerifyEmailRouteArgs {
 /// generated route for
 /// [_i8.FirestoreChatConversationPage]
 class FirestoreChatConversationRoute
-    extends _i13.PageRouteInfo<FirestoreChatConversationRouteArgs> {
+    extends _i14.PageRouteInfo<FirestoreChatConversationRouteArgs> {
   FirestoreChatConversationRoute({
-    _i15.Key? key,
-    _i16.FirestoreChat? chat,
-    List<_i17.FirestoreUser>? users,
-    List<_i13.PageRouteInfo>? children,
+    _i16.Key? key,
+    _i17.FirestoreChat? chat,
+    List<_i18.FirestoreUser>? users,
+    String? chatName,
+    List<_i14.PageRouteInfo>? children,
   }) : super(
           FirestoreChatConversationRoute.name,
           args: FirestoreChatConversationRouteArgs(
             key: key,
             chat: chat,
             users: users,
+            chatName: chatName,
           ),
           initialChildren: children,
         );
 
   static const String name = 'FirestoreChatConversationRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<FirestoreChatConversationRouteArgs>(
@@ -234,6 +238,7 @@ class FirestoreChatConversationRoute
         key: args.key,
         chat: args.chat,
         users: args.users,
+        chatName: args.chatName,
       );
     },
   );
@@ -244,24 +249,27 @@ class FirestoreChatConversationRouteArgs {
     this.key,
     this.chat,
     this.users,
+    this.chatName,
   });
 
-  final _i15.Key? key;
+  final _i16.Key? key;
 
-  final _i16.FirestoreChat? chat;
+  final _i17.FirestoreChat? chat;
 
-  final List<_i17.FirestoreUser>? users;
+  final List<_i18.FirestoreUser>? users;
+
+  final String? chatName;
 
   @override
   String toString() {
-    return 'FirestoreChatConversationRouteArgs{key: $key, chat: $chat, users: $users}';
+    return 'FirestoreChatConversationRouteArgs{key: $key, chat: $chat, users: $users, chatName: $chatName}';
   }
 }
 
 /// generated route for
 /// [_i9.FirestoreChatPage]
-class FirestoreChatRoute extends _i13.PageRouteInfo<void> {
-  const FirestoreChatRoute({List<_i13.PageRouteInfo>? children})
+class FirestoreChatRoute extends _i14.PageRouteInfo<void> {
+  const FirestoreChatRoute({List<_i14.PageRouteInfo>? children})
       : super(
           FirestoreChatRoute.name,
           initialChildren: children,
@@ -269,7 +277,7 @@ class FirestoreChatRoute extends _i13.PageRouteInfo<void> {
 
   static const String name = 'FirestoreChatRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       return const _i9.FirestoreChatPage();
@@ -278,13 +286,61 @@ class FirestoreChatRoute extends _i13.PageRouteInfo<void> {
 }
 
 /// generated route for
-/// [_i10.FirestoreEditUserPage]
+/// [_i10.FirestoreCreateGroupChatPage]
+class FirestoreCreateGroupChatRoute
+    extends _i14.PageRouteInfo<FirestoreCreateGroupChatRouteArgs> {
+  FirestoreCreateGroupChatRoute({
+    _i16.Key? key,
+    List<_i18.FirestoreUser> groupChatUsers = const [],
+    List<_i14.PageRouteInfo>? children,
+  }) : super(
+          FirestoreCreateGroupChatRoute.name,
+          args: FirestoreCreateGroupChatRouteArgs(
+            key: key,
+            groupChatUsers: groupChatUsers,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'FirestoreCreateGroupChatRoute';
+
+  static _i14.PageInfo page = _i14.PageInfo(
+    name,
+    builder: (data) {
+      final args = data.argsAs<FirestoreCreateGroupChatRouteArgs>(
+          orElse: () => const FirestoreCreateGroupChatRouteArgs());
+      return _i10.FirestoreCreateGroupChatPage(
+        key: args.key,
+        groupChatUsers: args.groupChatUsers,
+      );
+    },
+  );
+}
+
+class FirestoreCreateGroupChatRouteArgs {
+  const FirestoreCreateGroupChatRouteArgs({
+    this.key,
+    this.groupChatUsers = const [],
+  });
+
+  final _i16.Key? key;
+
+  final List<_i18.FirestoreUser> groupChatUsers;
+
+  @override
+  String toString() {
+    return 'FirestoreCreateGroupChatRouteArgs{key: $key, groupChatUsers: $groupChatUsers}';
+  }
+}
+
+/// generated route for
+/// [_i11.FirestoreEditUserPage]
 class FirestoreEditUserRoute
-    extends _i13.PageRouteInfo<FirestoreEditUserRouteArgs> {
+    extends _i14.PageRouteInfo<FirestoreEditUserRouteArgs> {
   FirestoreEditUserRoute({
-    _i15.Key? key,
-    _i17.FirestoreUser? user,
-    List<_i13.PageRouteInfo>? children,
+    _i16.Key? key,
+    _i18.FirestoreUser? user,
+    List<_i14.PageRouteInfo>? children,
   }) : super(
           FirestoreEditUserRoute.name,
           args: FirestoreEditUserRouteArgs(
@@ -296,12 +352,12 @@ class FirestoreEditUserRoute
 
   static const String name = 'FirestoreEditUserRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<FirestoreEditUserRouteArgs>(
           orElse: () => const FirestoreEditUserRouteArgs());
-      return _i10.FirestoreEditUserPage(
+      return _i11.FirestoreEditUserPage(
         key: args.key,
         user: args.user,
       );
@@ -315,9 +371,9 @@ class FirestoreEditUserRouteArgs {
     this.user,
   });
 
-  final _i15.Key? key;
+  final _i16.Key? key;
 
-  final _i17.FirestoreUser? user;
+  final _i18.FirestoreUser? user;
 
   @override
   String toString() {
@@ -326,14 +382,14 @@ class FirestoreEditUserRouteArgs {
 }
 
 /// generated route for
-/// [_i11.FirestoreFilterPage]
+/// [_i12.FirestoreFilterPage]
 class FirestoreFilterRoute
-    extends _i13.PageRouteInfo<FirestoreFilterRouteArgs> {
+    extends _i14.PageRouteInfo<FirestoreFilterRouteArgs> {
   FirestoreFilterRoute({
-    _i15.Key? key,
-    dynamic Function(_i18.FirestoreChatFilter)? applyFiltersCallback,
-    _i18.FirestoreChatFilter? initialFilters,
-    List<_i13.PageRouteInfo>? children,
+    _i16.Key? key,
+    dynamic Function(_i19.FirestoreChatFilter)? applyFiltersCallback,
+    _i19.FirestoreChatFilter? initialFilters,
+    List<_i14.PageRouteInfo>? children,
   }) : super(
           FirestoreFilterRoute.name,
           args: FirestoreFilterRouteArgs(
@@ -346,12 +402,12 @@ class FirestoreFilterRoute
 
   static const String name = 'FirestoreFilterRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<FirestoreFilterRouteArgs>(
           orElse: () => const FirestoreFilterRouteArgs());
-      return _i11.FirestoreFilterPage(
+      return _i12.FirestoreFilterPage(
         key: args.key,
         applyFiltersCallback: args.applyFiltersCallback,
         initialFilters: args.initialFilters,
@@ -367,11 +423,11 @@ class FirestoreFilterRouteArgs {
     this.initialFilters,
   });
 
-  final _i15.Key? key;
+  final _i16.Key? key;
 
-  final dynamic Function(_i18.FirestoreChatFilter)? applyFiltersCallback;
+  final dynamic Function(_i19.FirestoreChatFilter)? applyFiltersCallback;
 
-  final _i18.FirestoreChatFilter? initialFilters;
+  final _i19.FirestoreChatFilter? initialFilters;
 
   @override
   String toString() {
@@ -380,13 +436,13 @@ class FirestoreFilterRouteArgs {
 }
 
 /// generated route for
-/// [_i12.FirestoreUserDetailsPage]
+/// [_i13.FirestoreUserDetailsPage]
 class FirestoreUserDetailsRoute
-    extends _i13.PageRouteInfo<FirestoreUserDetailsRouteArgs> {
+    extends _i14.PageRouteInfo<FirestoreUserDetailsRouteArgs> {
   FirestoreUserDetailsRoute({
-    required _i17.FirestoreUser user,
-    _i15.Key? key,
-    List<_i13.PageRouteInfo>? children,
+    required _i18.FirestoreUser user,
+    _i16.Key? key,
+    List<_i14.PageRouteInfo>? children,
   }) : super(
           FirestoreUserDetailsRoute.name,
           args: FirestoreUserDetailsRouteArgs(
@@ -398,11 +454,11 @@ class FirestoreUserDetailsRoute
 
   static const String name = 'FirestoreUserDetailsRoute';
 
-  static _i13.PageInfo page = _i13.PageInfo(
+  static _i14.PageInfo page = _i14.PageInfo(
     name,
     builder: (data) {
       final args = data.argsAs<FirestoreUserDetailsRouteArgs>();
-      return _i12.FirestoreUserDetailsPage(
+      return _i13.FirestoreUserDetailsPage(
         user: args.user,
         key: args.key,
       );
@@ -416,9 +472,9 @@ class FirestoreUserDetailsRouteArgs {
     this.key,
   });
 
-  final _i17.FirestoreUser user;
+  final _i18.FirestoreUser user;
 
-  final _i15.Key? key;
+  final _i16.Key? key;
 
   @override
   String toString() {

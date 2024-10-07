@@ -28,8 +28,15 @@ mixin _$FirebaseHomeState {
   /// Shows fill in data form for user that do not exist in firestore
   bool get showFillDataForm => throw _privateConstructorUsedError;
 
+  /// Checkboxes next to users mode for creating a group caht
+  bool get isSelectUsersMode => throw _privateConstructorUsedError;
+
   /// List of firestore users
   FirestorePagedList<FirestoreUser> get userList =>
+      throw _privateConstructorUsedError;
+
+  /// Selected users for group chat
+  List<FirestoreUser> get selectedUsersForGroupChat =>
       throw _privateConstructorUsedError;
 
   /// Used filters for users list
@@ -59,7 +66,9 @@ abstract class $FirebaseHomeStateCopyWith<$Res> {
       bool isLoadingData,
       bool isFetchingMoreData,
       bool showFillDataForm,
+      bool isSelectUsersMode,
       FirestorePagedList<FirestoreUser> userList,
+      List<FirestoreUser> selectedUsersForGroupChat,
       FirestoreUserFilterRequest filters,
       FirestoreChatFilter uiFilters,
       FirestoreUser? user});
@@ -88,7 +97,9 @@ class _$FirebaseHomeStateCopyWithImpl<$Res, $Val extends FirebaseHomeState>
     Object? isLoadingData = null,
     Object? isFetchingMoreData = null,
     Object? showFillDataForm = null,
+    Object? isSelectUsersMode = null,
     Object? userList = null,
+    Object? selectedUsersForGroupChat = null,
     Object? filters = null,
     Object? uiFilters = null,
     Object? user = freezed,
@@ -110,10 +121,18 @@ class _$FirebaseHomeStateCopyWithImpl<$Res, $Val extends FirebaseHomeState>
           ? _value.showFillDataForm
           : showFillDataForm // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSelectUsersMode: null == isSelectUsersMode
+          ? _value.isSelectUsersMode
+          : isSelectUsersMode // ignore: cast_nullable_to_non_nullable
+              as bool,
       userList: null == userList
           ? _value.userList
           : userList // ignore: cast_nullable_to_non_nullable
               as FirestorePagedList<FirestoreUser>,
+      selectedUsersForGroupChat: null == selectedUsersForGroupChat
+          ? _value.selectedUsersForGroupChat
+          : selectedUsersForGroupChat // ignore: cast_nullable_to_non_nullable
+              as List<FirestoreUser>,
       filters: null == filters
           ? _value.filters
           : filters // ignore: cast_nullable_to_non_nullable
@@ -177,7 +196,9 @@ abstract class _$$FirebaseHomeStateImplCopyWith<$Res>
       bool isLoadingData,
       bool isFetchingMoreData,
       bool showFillDataForm,
+      bool isSelectUsersMode,
       FirestorePagedList<FirestoreUser> userList,
+      List<FirestoreUser> selectedUsersForGroupChat,
       FirestoreUserFilterRequest filters,
       FirestoreChatFilter uiFilters,
       FirestoreUser? user});
@@ -207,7 +228,9 @@ class __$$FirebaseHomeStateImplCopyWithImpl<$Res>
     Object? isLoadingData = null,
     Object? isFetchingMoreData = null,
     Object? showFillDataForm = null,
+    Object? isSelectUsersMode = null,
     Object? userList = null,
+    Object? selectedUsersForGroupChat = null,
     Object? filters = null,
     Object? uiFilters = null,
     Object? user = freezed,
@@ -229,10 +252,18 @@ class __$$FirebaseHomeStateImplCopyWithImpl<$Res>
           ? _value.showFillDataForm
           : showFillDataForm // ignore: cast_nullable_to_non_nullable
               as bool,
+      isSelectUsersMode: null == isSelectUsersMode
+          ? _value.isSelectUsersMode
+          : isSelectUsersMode // ignore: cast_nullable_to_non_nullable
+              as bool,
       userList: null == userList
           ? _value.userList
           : userList // ignore: cast_nullable_to_non_nullable
               as FirestorePagedList<FirestoreUser>,
+      selectedUsersForGroupChat: null == selectedUsersForGroupChat
+          ? _value._selectedUsersForGroupChat
+          : selectedUsersForGroupChat // ignore: cast_nullable_to_non_nullable
+              as List<FirestoreUser>,
       filters: null == filters
           ? _value.filters
           : filters // ignore: cast_nullable_to_non_nullable
@@ -251,16 +282,20 @@ class __$$FirebaseHomeStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$FirebaseHomeStateImpl implements _FirebaseHomeState {
+class _$FirebaseHomeStateImpl extends _FirebaseHomeState {
   _$FirebaseHomeStateImpl(
       {required this.isPageInit,
       required this.isLoadingData,
       required this.isFetchingMoreData,
       required this.showFillDataForm,
+      required this.isSelectUsersMode,
       required this.userList,
+      required final List<FirestoreUser> selectedUsersForGroupChat,
       required this.filters,
       required this.uiFilters,
-      this.user});
+      this.user})
+      : _selectedUsersForGroupChat = selectedUsersForGroupChat,
+        super._();
 
   /// Is page initialization
   @override
@@ -278,9 +313,25 @@ class _$FirebaseHomeStateImpl implements _FirebaseHomeState {
   @override
   final bool showFillDataForm;
 
+  /// Checkboxes next to users mode for creating a group caht
+  @override
+  final bool isSelectUsersMode;
+
   /// List of firestore users
   @override
   final FirestorePagedList<FirestoreUser> userList;
+
+  /// Selected users for group chat
+  final List<FirestoreUser> _selectedUsersForGroupChat;
+
+  /// Selected users for group chat
+  @override
+  List<FirestoreUser> get selectedUsersForGroupChat {
+    if (_selectedUsersForGroupChat is EqualUnmodifiableListView)
+      return _selectedUsersForGroupChat;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_selectedUsersForGroupChat);
+  }
 
   /// Used filters for users list
   @override
@@ -296,7 +347,7 @@ class _$FirebaseHomeStateImpl implements _FirebaseHomeState {
 
   @override
   String toString() {
-    return 'FirebaseHomeState(isPageInit: $isPageInit, isLoadingData: $isLoadingData, isFetchingMoreData: $isFetchingMoreData, showFillDataForm: $showFillDataForm, userList: $userList, filters: $filters, uiFilters: $uiFilters, user: $user)';
+    return 'FirebaseHomeState(isPageInit: $isPageInit, isLoadingData: $isLoadingData, isFetchingMoreData: $isFetchingMoreData, showFillDataForm: $showFillDataForm, isSelectUsersMode: $isSelectUsersMode, userList: $userList, selectedUsersForGroupChat: $selectedUsersForGroupChat, filters: $filters, uiFilters: $uiFilters, user: $user)';
   }
 
   @override
@@ -312,8 +363,12 @@ class _$FirebaseHomeStateImpl implements _FirebaseHomeState {
                 other.isFetchingMoreData == isFetchingMoreData) &&
             (identical(other.showFillDataForm, showFillDataForm) ||
                 other.showFillDataForm == showFillDataForm) &&
+            (identical(other.isSelectUsersMode, isSelectUsersMode) ||
+                other.isSelectUsersMode == isSelectUsersMode) &&
             (identical(other.userList, userList) ||
                 other.userList == userList) &&
+            const DeepCollectionEquality().equals(
+                other._selectedUsersForGroupChat, _selectedUsersForGroupChat) &&
             (identical(other.filters, filters) || other.filters == filters) &&
             (identical(other.uiFilters, uiFilters) ||
                 other.uiFilters == uiFilters) &&
@@ -321,8 +376,18 @@ class _$FirebaseHomeStateImpl implements _FirebaseHomeState {
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isPageInit, isLoadingData,
-      isFetchingMoreData, showFillDataForm, userList, filters, uiFilters, user);
+  int get hashCode => Object.hash(
+      runtimeType,
+      isPageInit,
+      isLoadingData,
+      isFetchingMoreData,
+      showFillDataForm,
+      isSelectUsersMode,
+      userList,
+      const DeepCollectionEquality().hash(_selectedUsersForGroupChat),
+      filters,
+      uiFilters,
+      user);
 
   /// Create a copy of FirebaseHomeState
   /// with the given fields replaced by the non-null parameter values.
@@ -334,16 +399,19 @@ class _$FirebaseHomeStateImpl implements _FirebaseHomeState {
           this, _$identity);
 }
 
-abstract class _FirebaseHomeState implements FirebaseHomeState {
+abstract class _FirebaseHomeState extends FirebaseHomeState {
   factory _FirebaseHomeState(
       {required final bool isPageInit,
       required final bool isLoadingData,
       required final bool isFetchingMoreData,
       required final bool showFillDataForm,
+      required final bool isSelectUsersMode,
       required final FirestorePagedList<FirestoreUser> userList,
+      required final List<FirestoreUser> selectedUsersForGroupChat,
       required final FirestoreUserFilterRequest filters,
       required final FirestoreChatFilter uiFilters,
       final FirestoreUser? user}) = _$FirebaseHomeStateImpl;
+  _FirebaseHomeState._() : super._();
 
   /// Is page initialization
   @override
@@ -361,9 +429,17 @@ abstract class _FirebaseHomeState implements FirebaseHomeState {
   @override
   bool get showFillDataForm;
 
+  /// Checkboxes next to users mode for creating a group caht
+  @override
+  bool get isSelectUsersMode;
+
   /// List of firestore users
   @override
   FirestorePagedList<FirestoreUser> get userList;
+
+  /// Selected users for group chat
+  @override
+  List<FirestoreUser> get selectedUsersForGroupChat;
 
   /// Used filters for users list
   @override

@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:chat_firestore/features/firebase/domain/models/firestore_chat.dart';
+import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_message.dart';
 import 'package:chat_firestore/features/firebase/domain/repositories/i_firestore_chat_repository.dart';
 import 'package:chat_firestore/features/firebase/presentation/auth/cubit/firebase_auth_controller_cubit.dart';
 import 'package:chat_firestore/core/di/injection_container.dart';
@@ -14,7 +15,9 @@ part 'firestore_chat_listener_cubit.freezed.dart';
 /// Central cubit controlling received messages from firestore stream subscription
 class FirestoreChatListenerCubit extends Cubit<FirestoreChatListenerState> {
   FirestoreChatListenerCubit(this._chatRepository)
-      : super(FirestoreChatListenerState());
+      : super(FirestoreChatListenerState(
+          moveReceivedChatToTop: true,
+        ));
 
   final IFirestoreChatRepository _chatRepository;
 
@@ -41,7 +44,28 @@ class FirestoreChatListenerCubit extends Cubit<FirestoreChatListenerState> {
     });
   }
 
-  void _setReceivedMessage(FirestoreChat? chat) {
-    emit(state.copyWith(receivedChat: chat));
+  void _setReceivedMessage(
+    FirestoreChat? chat, {
+    bool moveChatToTop = true,
+  }) {
+    emit(state.copyWith(
+      receivedChat: chat,
+      moveReceivedChatToTop: moveChatToTop,
+    ));
+  }
+
+  /// Handle Last msg from chat conversation page marked as read from chat conversation page cubit
+  void handleReadMessage({
+    required FirestoreChatMessage message,
+    required FirestoreChat relatedChat,
+  }) {
+    final updatedChat = relatedChat.copyWith(
+      lastMsg: message,
+      lastMsgTimestamp: message.timestamp,
+    );
+    _setReceivedMessage(
+      updatedChat,
+      moveChatToTop: false,
+    );
   }
 }
