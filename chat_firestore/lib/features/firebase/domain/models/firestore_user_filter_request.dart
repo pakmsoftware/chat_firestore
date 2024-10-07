@@ -1,6 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'firestore_user_filter_request.freezed.dart';
+part 'firestore_user_filter_request.g.dart';
 
 /// Filter request for users collection
 @freezed
