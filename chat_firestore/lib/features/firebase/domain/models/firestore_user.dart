@@ -2,7 +2,6 @@ import 'package:chat_firestore/features/firebase/domain/models/firestore_chat_us
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'firestore_user.freezed.dart';
-part 'firestore_user.g.dart';
 
 /// User model for firestore /users collection
 @freezed

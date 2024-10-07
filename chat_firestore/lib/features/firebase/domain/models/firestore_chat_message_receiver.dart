@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'firestore_chat_message_receiver.freezed.dart';
-part 'firestore_chat_message_receiver.g.dart';
 
 /// Single chat message receivers information -> if they were read by them or not
 @freezed

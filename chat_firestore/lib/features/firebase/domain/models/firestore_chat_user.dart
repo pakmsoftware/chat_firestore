@@ -1,7 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'firestore_chat_user.freezed.dart';
-part 'firestore_chat_user.g.dart';
 
 /// Single chat user model for firerstore
 @freezed

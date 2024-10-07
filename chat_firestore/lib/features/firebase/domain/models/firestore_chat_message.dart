@@ -8,7 +8,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 
 part 'firestore_chat_message.freezed.dart';
-part 'firestore_chat_message.g.dart';
 
 /// Firestore chat conversation single message model
 @freezed
