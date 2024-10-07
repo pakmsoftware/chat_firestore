@@ -12,7 +12,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:intl/intl.dart';
 
 part 'firestore_chat.freezed.dart';
-part 'firestore_chat.g.dart';
 
 /// Chat doc model for chats collection
 @freezed
